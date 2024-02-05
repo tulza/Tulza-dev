@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --element: hsl(209, 23%, 22%);
+  --background: var(--gray);
+  --text: hsl(0, 0%, 100%);
+
+  --white: #ffffff;
+  --black: #1c1e1f;
+  --gray: #212425;
+}
+
+html,
+#root {
+  @apply h-[100vh] w-[100vw];
+}
+
+html {
+  background-color: var(--background);
+  color: var(--text);
+  overflow: hidden;
+}
