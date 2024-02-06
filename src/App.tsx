@@ -1,5 +1,4 @@
-import Navigation from "@components/Navigation";
-import Template from "@components/pages/Template";
+import Home from "@/components/pages/Home";
 import "@styles/styles.css";
 import {
   BrowserRouter as Router,
@@ -10,10 +9,9 @@ import {
 
 function App() {
   return (
-    <Router basename="/vite-react-ts-template">
-      <Navigation />
+    <Router basename="/Tulza-dev">
       <Routes>
-        <Route path="/home" element={<Template />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Navigate to="/home" />} />
       </Routes>
     </Router>

@@ -1,0 +1,38 @@
+html {
+  font-family: "Literal Regular";
+}
+
+.bold {
+  font-family: "Literal Bold";
+}
+
+.light {
+  font-family: "Literal Light";
+}
+
+@font-face {
+  font-family: "Literal Regular";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Literal Regular"),
+    url("fonts/regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Literal Light";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Literal Light"),
+    url("fonts/light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Literal Bold";
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("Literal Bold"),
+    url("fonts/bold.woff") format("woff");
+}
