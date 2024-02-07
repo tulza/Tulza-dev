@@ -1,5 +1,11 @@
+import CodeText from "@ornament/CodeText";
+
 const Home = () => {
-  return <div>Hasdome</div>;
+  return (
+    <div>
+      <CodeText text="t" />
+    </div>
+  );
 };
 
 export default Home;

@@ -22,3 +22,8 @@ html {
   color: var(--text);
   overflow: hidden;
 }
+
+.textStroke {
+  -webkit-text-stroke: 1px white;
+  text-stroke: 1px white;
+}

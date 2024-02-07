@@ -1,4 +1,4 @@
-import Home from "@/components/pages/Home";
+import Home from "@components/pages/Home";
 import "@styles/styles.css";
 import {
   BrowserRouter as Router,
