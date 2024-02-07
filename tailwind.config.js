@@ -13,13 +13,12 @@ export default {
     },
     extend: {
       colors: {
-        element: "var(--element)",
+        blue: "var(--blue)",
+        green: "var(--green)",
+        purple: "var(--purple)",
+        red: "var(--red)",
+        yellow: "var(--yellow)",
         background: "var(--background)",
-        text: "var(--text)",
-
-        black: "var(--black)",
-        gray: "var(--gray)",
-        white: "var(--white)",
       },
       screens: {},
       transitionProperty: {},

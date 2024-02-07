@@ -1,9 +1,11 @@
-import CodeText from "@ornament/CodeText";
+import NavigationBar from "../NavigationBar";
 
 const Home = () => {
   return (
     <div>
-      <CodeText text="t" />
+      <div className="mt-[2rem] flex w-full  justify-center">
+        <NavigationBar />
+      </div>
     </div>
   );
 };

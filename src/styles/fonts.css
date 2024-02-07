@@ -16,7 +16,7 @@ html {
   font-weight: normal;
   src:
     local("Literal Regular"),
-    url("fonts/regular.woff") format("woff");
+    url("/src/fonts/regular.woff") format("woff");
 }
 
 @font-face {
@@ -25,7 +25,7 @@ html {
   font-weight: normal;
   src:
     local("Literal Light"),
-    url("fonts/light.woff") format("woff");
+    url("/src/fonts/light.woff") format("woff");
 }
 
 @font-face {
@@ -34,5 +34,5 @@ html {
   font-weight: normal;
   src:
     local("Literal Bold"),
-    url("fonts/bold.woff") format("woff");
+    url("/src/fonts/bold.woff") format("woff");
 }

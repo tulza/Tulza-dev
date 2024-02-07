@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --element: hsl(209, 23%, 22%);
-  --background: var(--gray);
+  --background: black;
+  --line: hsl(0, 0%, 100%);
   --text: hsl(0, 0%, 100%);
+  --text2: hsl(0, 0%, 100%);
 
-  --white: #ffffff;
-  --black: #1c1e1f;
-  --gray: #212425;
+  --blue: #54a6c9;
+  --green: #79c954;
+  --purple: #9554c9;
+  --red: #c95454;
+  --yellow: #c9af54;
 }
 
 html,
 #root {
+  font-family: "League Spartan", sans-serif;
   @apply h-[100vh] w-[100vw];
 }
 

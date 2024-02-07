@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { motion } from "framer-motion";
 
 /**
@@ -6,16 +7,21 @@ import { motion } from "framer-motion";
 
 const CodeText = ({
   text,
-  strokeColor = "white",
+  color = "#fff",
+  className,
 }: {
   text?: string;
-  strokeColor?: string;
+  color?: string;
+  className?: string;
 }) => {
   return (
     <motion.span
-      className="textStroke cursor-pointer select-none whitespace-nowrap text-3xl font-bold text-transparent"
-      whileHover={{ color: "#fff" }}
-      style={{ WebkitTextStrokeColor: strokeColor }}
+      className={clsx(
+        "textStroke cursor-pointer select-none whitespace-nowrap text-3xl font-bold text-transparent",
+        `${className}`,
+      )}
+      whileHover={{ color: color }}
+      style={{ WebkitTextStrokeColor: color }}
     >
       {/* <{text}/>  */}
       &lt;{text}/&zwnj;&gt;

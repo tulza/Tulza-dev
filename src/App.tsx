@@ -1,5 +1,6 @@
 import Home from "@components/pages/Home";
 import "@styles/styles.css";
+import "@styles/fonts.css";
 import {
   BrowserRouter as Router,
   Route,
