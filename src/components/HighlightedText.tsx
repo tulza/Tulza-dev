@@ -17,7 +17,7 @@ const HighlightedText = ({
   return (
     <div className={clsx("relative z-10", `${className}`)}>
       <motion.div
-        className={"absolute bottom-0 -z-10 h-2/3 w-full translate-x-[10%]"}
+        className={"absolute bottom-0 -z-10 h-2/3 w-full translate-x-[10%] pointer-events-none"}
         variants={{ hovered: { height: "33%" } }}
         style={{ backgroundColor: highlight, opacity: opacity }}
       />

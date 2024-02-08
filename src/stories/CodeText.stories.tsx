@@ -3,6 +3,12 @@ import CodeText from "@ornament/CodeText";
 export default {
   title: "CodeText",
   component: CodeText,
+  argTypes: {
+    variant: {
+      text: ['primary', 'secondary'],
+      control: { type: 'input' },
+    },
+  },
 };
 
 export const Nothing = () => <CodeText />;
