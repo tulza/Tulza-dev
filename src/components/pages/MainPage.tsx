@@ -8,8 +8,8 @@ const MainPage = () => {
 
   return (
     <div>
-      <div className="mt-[3rem] flex w-full justify-center">
-        {isMobile ? <MobileNavigation /> : <NavigationBar />}
+      <div className="flex w-full justify-center sm:mt-[3rem]">
+        {isMobile ? <NavigationBar /> : <MobileNavigation />}
       </div>
     </div>
   );

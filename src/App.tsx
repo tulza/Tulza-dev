@@ -13,7 +13,7 @@ import { useMediaQuery } from "@hooks/usMediaQuery";
 export const ScreenProfileContext = createContext(false);
 
 function App() {
-  const isMobile = useMediaQuery("(max-width:750px)");
+  const isMobile = useMediaQuery("(min-width:640px)");
 
   const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     return (

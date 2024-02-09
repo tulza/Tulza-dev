@@ -1,56 +1,49 @@
 import CodeText from "@ornament/CodeText";
-import ButtonWrapper from "./ButtonWrapper";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const MobileNavigation = () => {
   const [isToggled, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!isToggled);
+  };
   return (
     <div className="bold hover relative flex h-[5rem] w-full select-none items-center justify-between bg-black px-[5rem] tracking-wider">
       <CodeText text="A" />
-      <MenuButton isToggled={isToggled} setToggle={setToggle} />
+      <MenuButton handleToggle={handleToggle} isToggled={isToggled} />
     </div>
   );
 };
 const MenuButton = ({
   isToggled,
-  setToggle,
+  handleToggle,
 }: {
   isToggled: boolean;
-  setToggle: any;
+  handleToggle: () => void;
 }) => {
-  const ToggleBlock = React.memo(() => (
-    <div className="flex h-full w-full items-center justify-center">
-      <motion.div
-        className="aspect-square w-1 bg-white"
-        animate={
-          isToggled
-            ? { rotateZ: "45deg", width: "0" }
-            : { rotateZ: "0deg", width: "full" }
-        }
-      />
-    </div>
-  ));
-  const NormBlock = () => <div className="h-1 w-1 bg-white" />;
-
+  const Block = () => <div className="aspect-square w-1 bg-white" />;
+  const ToggleBlock = () => (
+    <motion.div
+      className="aspect-square w-1 bg-white"
+      initial={isToggled ? { scale: 1 } : { scale: 0 }}
+      animate={isToggled ? { scale: 0 } : { scale: 1 }}
+    />
+  );
   return (
-    <ButtonWrapper
-      OnClick={() => {
-        setToggle(!isToggled);
-      }}
+    <motion.div
+      className="grid aspect-square w-6 cursor-pointer grid-cols-3"
+      onClick={handleToggle}
     >
-      <motion.div className="m-4 grid grid-cols-3 items-center justify-center gap-1">
-        <NormBlock />
-        <ToggleBlock />
-        <NormBlock />
-        <ToggleBlock />
-        <NormBlock />
-        <ToggleBlock />
-        <NormBlock />
-        <ToggleBlock />
-        <NormBlock />
-      </motion.div>
-    </ButtonWrapper>
+      <Block />
+      <ToggleBlock />
+      <Block />
+      <ToggleBlock />
+      <Block />
+      <ToggleBlock />
+      <Block />
+      <ToggleBlock />
+      <Block />
+    </motion.div>
   );
 };
 
