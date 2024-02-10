@@ -3,12 +3,13 @@ import { useContext } from "react";
 import { ScreenProfileContext } from "@/App";
 import MobileNavigation from "@components/Navigation/MobileNav";
 import AnimatedText from "@components/AnimatedText";
+import { blob } from "@/assets/indexImage";
 
 const MainPage = () => {
   const isMobile = useContext(ScreenProfileContext);
   const AnimatedTextVariant = {
     animate: { opacity: 1, y: 0 },
-    initial: { opacity: 0, y: 10 },
+    initial: { opacity: 1, y: 20 },
   };
   return (
     <div>
@@ -16,6 +17,8 @@ const MainPage = () => {
         {isMobile ? <NavigationBar /> : <MobileNavigation />}
       </div>
       <AnimatedText
+        transition={{ duration: 0.75, type: "spring" }}
+        className="absolute bottom-0 overflow-hidden"
         text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
         TextVariants={AnimatedTextVariant}
         type="word"

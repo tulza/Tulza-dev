@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import MobNavMenu from "./MobNavMenu";
+import { blob } from "@/assets/indexImage";
 
 const MobileNavigation = () => {
   const [isMenuToggled, setToggleMenu] = useState(false);
@@ -12,6 +13,7 @@ const MobileNavigation = () => {
   return (
     <>
       <MobNavMenu isToggled={isMenuToggled} />
+      <Blobs />
       <div className="bold hover relative flex h-[5rem] w-full select-none items-center justify-between bg-black px-[2rem] tracking-wider">
         <CodeText text="a" />
         <MenuButton
@@ -69,5 +71,47 @@ const MenuButton = React.memo(
     );
   },
 );
+
+const Blobs = () => {
+  const bloboffsets = [0, 90, 180];
+  const durations = [7, 17, 31];
+  return (
+    <>
+      <motion.img
+        src={blob}
+        className="absolute left-0 z-10 w-[25rem]"
+        initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[0] }}
+        animate={{ rotate: 360 + bloboffsets[0] }}
+        transition={{
+          duration: durations[0],
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
+      <motion.img
+        src={blob}
+        className="absolute left-0 z-10 w-[25rem]"
+        initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[1] }}
+        animate={{ rotate: 360 + bloboffsets[1] }}
+        transition={{
+          duration: durations[1],
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />{" "}
+      <motion.img
+        src={blob}
+        className="absolute left-0 z-10 w-[25rem]"
+        initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[2] }}
+        animate={{ rotate: 360 + bloboffsets[2] }}
+        transition={{
+          duration: durations[2],
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
+    </>
+  );
+};
 
 export default MobileNavigation;

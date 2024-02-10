@@ -15,6 +15,11 @@
   --yellow: #c9af54;
 }
 
+* {
+  /* for testing */
+  /* outline: solid; */
+}
+
 html,
 #root {
   font-family: "Literal Regular";
