@@ -4,10 +4,10 @@ import React from "react";
 type ButtonProps = {
   children?: React.ReactNode;
   OnClick?: (event: any) => void;
-  ref? : React.RefObject<HTMLInputElement>;
+  ref?: React.RefObject<HTMLInputElement>;
 };
 
-const ButtonWrapper = ({ children, OnClick,ref }: ButtonProps) => {
+const ButtonWrapper = ({ children, OnClick, ref }: ButtonProps) => {
   return (
     <motion.div
       className="cursor-pointer"

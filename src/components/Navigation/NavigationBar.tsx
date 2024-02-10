@@ -1,8 +1,8 @@
-import HighlightedText from "@components/HighlightedText";
-import CodeText from "@ornament/CodeText";
-import ButtonWrapper from "./ButtonWrapper";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import HighlightedText from "@components/HighlightedText";
+import CodeText from "@ornament/CodeText";
+import ButtonWrapper from "../Wrapper/ButtonWrapper";
 
 const NavigationBar = () => {
   const initButtonRef = useRef(null);
@@ -27,8 +27,8 @@ const NavigationBar = () => {
   };
 
   return (
-    <div className="bold hover relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b border-t bg-black px-[5rem] tracking-wider">
-      <CodeText text="A" />
+    <div className="bold hover relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b bg-black px-[5rem] tracking-wider">
+      <CodeText text="a" />
       <div
         ref={initButtonRef}
         onMouseEnter={ButtonHovered}
