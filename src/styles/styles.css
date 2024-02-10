@@ -17,7 +17,7 @@
 
 html,
 #root {
-  font-family: "League Spartan", sans-serif;
+  font-family: "Literal Regular";
   @apply h-[100vh] w-[100vw];
 }
 
