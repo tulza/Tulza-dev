@@ -18,7 +18,10 @@ const MobNavMenu = ({ className, isToggled }: Props) => {
       animate={isToggled ? { opacity: 1, width: 350 } : { opacity: 0 }}
     >
       <motion.div
-        transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
+        transition={{
+          staggerChildren: isToggled ? 0.1 : 0,
+          delayChildren: 0.3,
+        }}
         initial={false}
         animate={isToggled ? "open" : "closed"}
       >
@@ -26,7 +29,6 @@ const MobNavMenu = ({ className, isToggled }: Props) => {
           <MenuItems text="About me" highlight="var(--blue)" />
           <MenuItems text="Projects" highlight="var(--green)" />
           <MenuItems text="Contacts" highlight="var(--yellow)" />
-          <MenuItems text="Resume" highlight="var(--purple)" />
         </div>
       </motion.div>
     </motion.div>
