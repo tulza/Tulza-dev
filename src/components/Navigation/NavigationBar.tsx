@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import HighlightedText from "@components/HighlightedText";
 import CodeText from "@ornament/CodeText";
 import ButtonWrapper from "../Wrapper/ButtonWrapper";
+import { blob } from "@/assets/indexImage";
+import clsx from "clsx";
 
 const NavigationBar = () => {
   const initButtonRef = useRef(null);
@@ -27,42 +29,93 @@ const NavigationBar = () => {
   };
 
   return (
-    <div className="bold hover relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b bg-black px-[5rem] tracking-wider">
-      <CodeText text="a" />
-      <div
-        ref={initButtonRef}
-        onMouseEnter={ButtonHovered}
-        onMouseLeave={ButtonUnhovered}
-      >
-        <ButtonWrapper>
-          <HighlightedText text="About me" highlight="var(--blue)" />
-        </ButtonWrapper>
+    <>
+      <Blobs />
+      <div className="hover relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b bg-black px-[5rem] tracking-wider">
+        <CodeText text="a" className="bold" />
+        <div
+          ref={initButtonRef}
+          onMouseEnter={ButtonHovered}
+          onMouseLeave={ButtonUnhovered}
+        >
+          <ButtonWrapper>
+            <HighlightedText text="About me" highlight="var(--blue)" />
+          </ButtonWrapper>
+        </div>
+        <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
+          <ButtonWrapper>
+            <HighlightedText text="Projects" highlight="var(--green)" />
+          </ButtonWrapper>
+        </div>
+        <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
+          <ButtonWrapper>
+            <HighlightedText text="Contacts" highlight="var(--yellow)" />
+          </ButtonWrapper>
+        </div>
+        <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
+          <ButtonWrapper>
+            <HighlightedText text="Resume" highlight="var(--purple)" />
+          </ButtonWrapper>
+        </div>
+        <motion.div
+          className="absolute bottom-3 h-2 w-2 rounded-full bg-white"
+          animate={{
+            left: hoveredButtonPos.left + hoveredButtonPos.width,
+            opacity: isHovering ? 1 : 0,
+          }}
+          transition={isHovering ? {} : { delay: 0.3 }}
+          initial={{ opacity: 0 }}
+        />
       </div>
-      <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-        <ButtonWrapper>
-          <HighlightedText text="Projects" highlight="var(--green)" />
-        </ButtonWrapper>
-      </div>
-      <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-        <ButtonWrapper>
-          <HighlightedText text="Contacts" highlight="var(--yellow)" />
-        </ButtonWrapper>
-      </div>
-      <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-        <ButtonWrapper>
-          <HighlightedText text="Resume" highlight="var(--purple)" />
-        </ButtonWrapper>
-      </div>
-      <motion.div
-        className="absolute bottom-3 h-2 w-2 rounded-full bg-white"
-        animate={{
-          left: hoveredButtonPos.left + hoveredButtonPos.width,
-          opacity: isHovering ? 1 : 0,
+    </>
+  );
+};
+
+const Blobs = () => {
+  const bloboffsets = [0, 90, 180];
+  const durations = [7, 17, 31];
+  return (
+    <>
+      <motion.img
+        src={blob}
+        className={clsx(
+          `pointer-events-none absolute left-[50%] right-0 w-[30rem] blur-sm`,
+        )}
+        initial={{ x: "-30%", y: "-75%", rotate: bloboffsets[0] }}
+        animate={{ rotate: 360 + bloboffsets[0] }}
+        transition={{
+          duration: durations[0],
+          ease: "linear",
+          repeat: Infinity,
         }}
-        transition={isHovering ? {} : { delay: 0.3 }}
-        initial={{ opacity: 0 }}
       />
-    </div>
+      <motion.img
+        src={blob}
+        className={clsx(
+          `pointer-events-none absolute left-[50%] right-0 w-[32rem] blur-[2px]`,
+        )}
+        initial={{ x: "-60%", y: "-75%", rotate: bloboffsets[1] }}
+        animate={{ rotate: 360 + bloboffsets[1] }}
+        transition={{
+          duration: durations[1],
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />{" "}
+      <motion.img
+        src={blob}
+        className={clsx(
+          `pointer-events-none absolute left-[50%] right-0 w-[35rem]`,
+        )}
+        initial={{ x: "-50%", y: "-75%", rotate: bloboffsets[2] }}
+        animate={{ rotate: 360 + bloboffsets[2] }}
+        transition={{
+          duration: durations[2],
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
+    </>
   );
 };
 

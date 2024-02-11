@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { MotionConfigProps, MotionStyle, motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
 type AnimatedTextProps = {
@@ -9,6 +9,7 @@ type AnimatedTextProps = {
   TextVariants: any;
   transition?: any;
   text: string;
+  delayChild?: number;
 };
 
 const AnimatedText = ({
@@ -18,6 +19,7 @@ const AnimatedText = ({
   type = "word",
   staggerChildren = type == "word" ? 0.175 : 0.04,
   transition,
+  delayChild = 0,
 }: AnimatedTextProps) => {
   let items: string | string[] = text;
   if (type == "word") {
@@ -28,7 +30,10 @@ const AnimatedText = ({
   return (
     <motion.div
       className={clsx("flex", `${className}`)}
-      transition={{ staggerChildren: staggerChildren }}
+      transition={{
+        staggerChildren: staggerChildren,
+        delayChildren: delayChild,
+      }}
       initial="initial"
       animate="animate"
     >

@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { ScreenProfileContext } from "@/App";
 import MobileNavigation from "@components/Navigation/MobileNav";
 import AnimatedText from "@components/AnimatedText";
-import { blob } from "@/assets/indexImage";
+import IntroText from "@components/IntroText";
+import MoblieIntroText from "@components/MoblieIntroText";
 
 const MainPage = () => {
   const isMobile = useContext(ScreenProfileContext);
@@ -16,6 +17,10 @@ const MainPage = () => {
       <div className="mt-[1rem] flex w-full justify-center sm:mt-[2rem]">
         {isMobile ? <NavigationBar /> : <MobileNavigation />}
       </div>
+      <div className="mt-[10rem] flex justify-start sm:justify-center">
+        {isMobile ? <IntroText /> : <MoblieIntroText />}
+      </div>
+
       <AnimatedText
         transition={{ duration: 0.75, type: "spring" }}
         className="absolute bottom-0 overflow-hidden"

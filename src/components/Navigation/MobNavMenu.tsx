@@ -11,11 +11,11 @@ const MobNavMenu = ({ className, isToggled }: Props) => {
   return (
     <motion.div
       className={clsx(
-        "absolute right-0 top-0 z-10 h-full w-0 overflow-hidden rounded-l-[100px] bg-black outline",
+        "absolute right-0 top-0 z-[999] h-full w-0 overflow-hidden bg-black outline",
         `${className}`,
       )}
       initial={{ opacity: 0, width: 0 }}
-      animate={isToggled ? { opacity: 1, width: 350 } : { opacity: 0 }}
+      animate={isToggled ? { opacity: 1, width: "100%" } : { opacity: 0 }}
     >
       <motion.div
         transition={{

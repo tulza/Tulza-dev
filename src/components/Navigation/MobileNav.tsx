@@ -19,7 +19,7 @@ const MobileNavigation = () => {
         <MenuButton
           handleToggle={handleToggle}
           isToggled={isMenuToggled}
-          className="z-50"
+          className="z-[9999]"
         />
       </div>
     </>
