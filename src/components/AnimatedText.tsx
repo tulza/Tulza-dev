@@ -40,23 +40,24 @@ const AnimatedText = ({
       {items.map((char, index) => {
         if (char == " ")
           return (
-            <motion.div
+            <motion.span
               variants={TextVariants}
               transition={transition}
               key={uuidv4()}
             >
               &nbsp;
-            </motion.div>
+            </motion.span>
           );
         return (
-          <motion.div
+          <motion.span
+            className="whitespace-nowrap"
             variants={TextVariants}
             transition={transition}
             key={uuidv4()}
           >
             {char}
             {type == "word" && !!(index != items.length - 1) && <>&nbsp;</>}
-          </motion.div>
+          </motion.span>
         );
       })}
     </motion.div>

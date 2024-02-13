@@ -2,32 +2,43 @@ import NavigationBar from "@components/Navigation/NavigationBar";
 import { useContext } from "react";
 import { ScreenProfileContext } from "@/App";
 import MobileNavigation from "@components/Navigation/MobileNav";
-import AnimatedText from "@components/AnimatedText";
 import IntroText from "@components/IntroText";
 import MoblieIntroText from "@components/MoblieIntroText";
+import AnimatedText from "@components/AnimatedText";
+import { IntroTextVariant } from "@/Framer/Variants";
+import { motion } from "framer-motion";
+import SliderIntroText from "@components/SliderIntroText";
 
 const MainPage = () => {
   const isMobile = useContext(ScreenProfileContext);
-  const AnimatedTextVariant = {
-    animate: { opacity: 1, y: 0 },
-    initial: { opacity: 1, y: 20 },
-  };
+
   return (
     <div>
       <div className="mt-[1rem] flex w-full justify-center sm:mt-[2rem]">
         {isMobile ? <NavigationBar /> : <MobileNavigation />}
       </div>
-      <div className="mt-[10rem] flex justify-start sm:justify-center">
-        {isMobile ? <IntroText /> : <MoblieIntroText />}
+      <div className="mt-[6rem] flex h-[100vh] flex-col items-start pb-[10rem] sm:mt-[0rem] sm:items-center sm:justify-center">
+        <div>
+          <div>{isMobile ? <IntroText /> : <MoblieIntroText />}</div>
+          <div className="flex sm:text-2xl">
+            <AnimatedText
+              className="ml-4 self-start sm:ml-0"
+              text="self-taught web developer working with"
+              TextVariants={IntroTextVariant}
+              delayChild={1}
+            />
+            &nbsp;
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={IntroTextVariant}
+              transition={{ delay: 0 }}
+            >
+              <SliderIntroText />
+            </motion.div>
+          </div>
+        </div>
       </div>
-
-      <AnimatedText
-        transition={{ duration: 0.75, type: "spring" }}
-        className="absolute bottom-0 overflow-hidden"
-        text="Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
-        TextVariants={AnimatedTextVariant}
-        type="word"
-      />
     </div>
   );
 };

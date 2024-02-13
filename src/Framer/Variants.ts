@@ -1,4 +1,4 @@
 export const IntroTextVariant = {
-  initial: { y: "100%" },
-  animate: { y: 0 },
+  initial: { x: "-100%", opacity: 0 },
+  animate: { x: 0, opacity: 1 },
 };

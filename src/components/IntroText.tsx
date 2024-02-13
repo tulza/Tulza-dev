@@ -6,20 +6,20 @@ const IntroText = () => {
     <div className="relative flex">
       <AnimatedText
         transition={{ duration: 0.5, type: "spring" }}
-        staggerChildren={0.1}
+        staggerChildren={0.05}
         className="textStroke bold overflow-hidden text-[4rem] sm:text-[6rem]"
-        text="Hello I'm Ashton"
+        text="Hello, I'm Ashton"
         TextVariants={IntroTextVariant}
         type="letters"
       />
       <AnimatedText
         transition={{ duration: 0.5, type: "spring" }}
-        staggerChildren={0.1}
+        staggerChildren={0.05}
         className="bold absolute right-0 -translate-y-1 overflow-hidden text-[4rem] sm:text-[6rem]"
         text="Ashton"
         TextVariants={IntroTextVariant}
         type="letters"
-        delayChild={1.1}
+        delayChild={0.55}
       />
     </div>
   );

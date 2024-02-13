@@ -31,7 +31,7 @@ const NavigationBar = () => {
   return (
     <>
       <Blobs />
-      <div className="hover relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b bg-black px-[5rem] tracking-wider">
+      <div className="relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b bg-black px-[5rem] tracking-wider">
         <CodeText text="a" className="bold" />
         <div
           ref={initButtonRef}
