@@ -11,7 +11,7 @@ const MobNavMenu = ({ className, isToggled }: Props) => {
   return (
     <motion.div
       className={clsx(
-        "absolute right-0 top-0 z-[999] h-full w-0 overflow-hidden bg-black outline",
+        "absolute right-0 top-0 z-[999] h-full w-0 overflow-hidden bg-[#0009] outline backdrop-blur-xl",
         `${className}`,
       )}
       initial={{ opacity: 0, width: 0 }}

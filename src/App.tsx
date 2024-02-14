@@ -1,6 +1,7 @@
 import MainPage from "@pages/MainPage";
 import "@styles/styles.css";
 import "@styles/fonts.css";
+import "@styles/scrollbar.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -13,11 +14,11 @@ import { useMediaQuery } from "@hooks/usMediaQuery";
 export const ScreenProfileContext = createContext(false);
 
 function App() {
-  const isMobile = useMediaQuery("(min-width:640px)");
+  const isDesktop = useMediaQuery("(min-width:640px)");
 
   const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     return (
-      <ScreenProfileContext.Provider value={isMobile}>
+      <ScreenProfileContext.Provider value={isDesktop}>
         {children}
       </ScreenProfileContext.Provider>
     );

@@ -8,6 +8,7 @@
     "baseUrl": ".",
     "paths": {
       "@svg/*": ["./src/assets/svg/*"],
+      "@toolsIcon/*": ["./src/assets/Toolsicons/*"],
       "@projectImage/*": ["./src/assets/projectImage/*"],
       "@ornament/*": ["./src/components/ornament/*"],
       "@pages/*": ["./src/components/pages/*"],

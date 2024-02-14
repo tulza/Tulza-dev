@@ -29,7 +29,7 @@ html,
 html {
   background-color: var(--background);
   color: var(--text);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .textStroke {
