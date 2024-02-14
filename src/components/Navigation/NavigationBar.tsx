@@ -7,18 +7,20 @@ import { blob } from "@/assets/indexImage";
 import clsx from "clsx";
 
 const NavigationBar = () => {
-  const initButtonRef = useRef(null);
+  const initButtonRef = useRef<HTMLDivElement | null>(null);
 
   const [hoveredButtonPos, setButtonPos] = useState({ left: 0, width: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const left = initButtonRef.current.offsetLeft;
-    const width = initButtonRef.current.offsetWidth;
-    setButtonPos({ left: left, width: width / 2 });
+    if (initButtonRef.current) {
+      const left = initButtonRef.current.offsetLeft;
+      const width = initButtonRef.current.offsetWidth;
+      setButtonPos({ left: left, width: width / 2 });
+    }
   }, []);
 
-  const ButtonHovered = (e) => {
+  const ButtonHovered = (e: any) => {
     setIsHovering(true);
     const left = e.target.offsetLeft;
     const width = e.target.offsetWidth;

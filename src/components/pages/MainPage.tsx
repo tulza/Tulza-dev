@@ -17,7 +17,6 @@ import {
   TypescriptIcon,
   StoryBookIcon,
 } from "@/assets/indexIconImages";
-import clsx from "clsx";
 import BackgroundBlurObject from "@components/BackgroundBlurObject";
 
 const MainPage = () => {
@@ -57,7 +56,7 @@ const MainPage = () => {
           </motion.div>
         </div>
       )}
-      <div className="mt-[1rem] flex w-full justify-center sm:mt-[2rem]">
+      <div className=" flex w-full justify-center sm:mt-[2rem]">
         {isDesktop ? <NavigationBar /> : <MobileNavigation />}
       </div>
       <div className="pointer-events-none mt-[6rem] flex h-[100vh] select-none flex-col items-start pb-[10rem] sm:mt-[0rem] sm:items-center sm:justify-center">

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { MotionConfigProps, MotionStyle, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
 type AnimatedTextProps = {

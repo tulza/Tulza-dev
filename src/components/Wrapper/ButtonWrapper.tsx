@@ -7,7 +7,7 @@ type ButtonProps = {
   ref?: React.RefObject<HTMLInputElement>;
 };
 
-const ButtonWrapper = ({ children, OnClick, ref }: ButtonProps) => {
+const ButtonWrapper = ({ children, OnClick }: ButtonProps) => {
   return (
     <motion.div
       className="cursor-pointer"

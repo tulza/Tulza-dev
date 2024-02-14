@@ -14,7 +14,7 @@ const SliderIntroText = ({
   itemClassName,
   items,
   hasIcon = false,
-  icons,
+  icons = [],
 }: SliderIntroProp) => {
   const [itemIndex, setIndex] = useState([0, 1]);
   const length = items.length;
