@@ -1,30 +1,40 @@
+import clsx from "clsx";
 import { delay, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const SliderIntroText = () => {
-  const [item, setItems] = useState(["item1", "item2"]);
+const SliderIntroText = ({
+  className,
+  items,
+}: {
+  className?: string;
+  items: string[];
+}) => {
+  const [itemIndex, setIndex] = useState([0, 1]);
+  const length = items.length;
   useEffect(() => {
+    console.log(itemIndex);
     setTimeout(() => {
-      setItems([item[1], item[0]]);
-    }, 1000);
-  }, [item]);
+      setIndex([(itemIndex[0] + 1) % length, (itemIndex[1] + 1) % length]);
+    }, 2000);
+  }, [itemIndex]);
 
   return (
-    <motion.div className="relative ">
+    <motion.div className={clsx("relative w-min", `${className}`)}>
       <motion.div
-        key={item[1]}
+        key={items[itemIndex[0]]}
+        className="w-full whitespace-nowrap"
         initial={{ y: 0 }}
         animate={{ y: "-50%", opacity: 0 }}
       >
-        {item[0]}
+        {items[itemIndex[0]]}
       </motion.div>
       <motion.p
-        key={item[0]}
-        className="absolute"
+        key={items[itemIndex[1]]}
+        className="w-full whitespace-nowrap"
         initial={{ y: 0, opacity: 0 }}
         animate={{ y: "-100%", opacity: 1 }}
       >
-        {item[1]}
+        {items[itemIndex[1]]}
       </motion.p>
     </motion.div>
   );

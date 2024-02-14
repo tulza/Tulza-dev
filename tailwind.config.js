@@ -20,7 +20,9 @@ export default {
         yellow: "var(--yellow)",
         background: "var(--background)",
       },
-      screens: {},
+      screens: {
+        nsm: { max: "639px" },
+      },
       transitionProperty: {},
     },
   },
