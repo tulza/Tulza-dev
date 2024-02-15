@@ -1,15 +1,18 @@
-import MainPage from "@pages/MainPage";
-import "@styles/styles.css";
-import "@styles/fonts.css";
-import "@styles/scrollbar.css";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
+//styles
+import "@styles/styles.css";
+import "@styles/fonts.css";
+import "@styles/scrollbar.css";
+//custom hooks
 import { createContext } from "react";
 import { useMediaQuery } from "@hooks/usMediaQuery";
+//pages
+import MainPage from "@pages/MainPage";
 
 export const ScreenProfileContext = createContext(false);
 
