@@ -1,16 +1,17 @@
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import React from "react";
 
 type ButtonProps = {
   children?: React.ReactNode;
   OnClick?: (event: any) => void;
-  ref?: React.RefObject<HTMLInputElement>;
+  className?: string;
 };
 
-const ButtonWrapper = ({ children, OnClick }: ButtonProps) => {
+const ButtonWrapper = ({ children, className, OnClick }: ButtonProps) => {
   return (
     <motion.div
-      className="cursor-pointer"
+      className={clsx("cursor-pointer", `${className}`)}
       whileHover="hovered"
       onClick={OnClick}
     >
