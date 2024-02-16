@@ -7,7 +7,7 @@ import AboutMeSection from "./AboutMeSection";
 const MainPage = () => {
   return (
     <Fragment>
-      <IntroSection />
+      {/* <IntroSection /> */}
       <SectionFade />
       <AboutMeSection />
     </Fragment>
