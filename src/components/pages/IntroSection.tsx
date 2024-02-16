@@ -67,7 +67,7 @@ const IntroSection = () => {
         <div>
           {isDesktop ? <IntroText /> : <MoblieIntroText />}
           <div className="nsm:flex nsm:w-[100vw] nsm:justify-center">
-            <div className="flex flex-col sm:flex-row sm:text-2xl">
+            <div className="flex flex-col sm:flex-row sm:text-xl lg:text-2xl">
               <AnimatedText
                 text="self-taught web developer working with"
                 TextVariants={IntroTextVariant}
@@ -82,7 +82,7 @@ const IntroSection = () => {
                 transition={{ delay: 1.8 }} //1.8
               >
                 <SliderIntroText
-                  className="text-center sm:text-left nsm:mt-8"
+                  className="text-center sm:text-left sm:text-xl lg:text-2xl nsm:mt-8"
                   itemClassName="nsm:justify-center"
                   items={items}
                   icons={icons}

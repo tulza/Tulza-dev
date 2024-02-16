@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import { Fragment } from "react";
 
 import IntroSection from "./IntroSection";
 

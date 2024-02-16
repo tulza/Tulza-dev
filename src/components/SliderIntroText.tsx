@@ -38,7 +38,12 @@ const SliderIntroText = ({
         animate={{ y: "-50%", opacity: 0 }}
       >
         {items[itemIndex[0]]}&nbsp;
-        {!!icons && <img className="h-[40px]" src={icons[itemIndex[0]]} />}
+        {!!icons && (
+          <img
+            className="h-[40px] sm:h-[30px] lg:h-[40px]"
+            src={icons[itemIndex[0]]}
+          />
+        )}
       </motion.div>
       <motion.p
         key={items[itemIndex[1]]}
@@ -47,7 +52,12 @@ const SliderIntroText = ({
         animate={{ y: "-100%", opacity: 1 }}
       >
         {items[itemIndex[1]]}&nbsp;
-        {!!icons && <img className="h-[40px]" src={icons[itemIndex[1]]} />}
+        {!!icons && (
+          <img
+            className="h-[40px] sm:h-[30px] lg:h-[40px]"
+            src={icons[itemIndex[1]]}
+          />
+        )}
       </motion.p>
     </motion.div>
   );

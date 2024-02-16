@@ -40,12 +40,12 @@ html {
 
 .grid-background-30 {
   background: url(/src/assets/svg/grid.svg);
-  background-size: 30px 30px;
+  background-size: 30px;
 }
 
-.grid-background-55 {
+.grid-background-50 {
   background: url(/src/assets/svg/grid.svg);
-  background-size: 55px 55px;
+  background-size: 50px;
 }
 
 .fade {
