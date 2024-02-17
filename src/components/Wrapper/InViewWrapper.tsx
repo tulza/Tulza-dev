@@ -24,10 +24,6 @@ const InViewWrapper = ({
   duration = duration ? duration : 0.5;
   delay = delay ? delay : 0;
 
-  inViewVariant = inViewVariant
-    ? inViewVariant
-    : { Visible: { opacity: 1 }, Invisible: { opacity: 0 } };
-
   const ref = useRef(null);
   const IsInView = useInView(ref, { amount: amount });
   return (

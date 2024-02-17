@@ -4,6 +4,6 @@ export const IntroTextVariant = {
 };
 
 export const AboutMeTextVariant = {
-  initial: { opacity: 0, x: "50%" },
+  initial: { opacity: 0, x: "30%" },
   animate: { opacity: 1, x: 0 },
 };

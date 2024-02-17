@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 type AnimatedTextProps = {
@@ -27,15 +28,18 @@ const AnimatedText = ({
   } else {
     items = [...items];
   }
+  const ref = useRef(null);
+  const InView = useInView(ref, { once: true });
   return (
     <motion.div
+      ref={ref}
       className={clsx("flex", `${className}`)}
       transition={{
         staggerChildren: staggerChildren,
         delayChildren: delayChild,
       }}
       initial="initial"
-      animate="animate"
+      animate={InView ? "animate" : "initial"}
     >
       {items.map((char, index) => {
         if (char == " ")
