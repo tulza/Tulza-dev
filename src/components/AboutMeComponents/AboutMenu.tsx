@@ -8,7 +8,7 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // i'm sorry
 const AboutMenu = ({
@@ -81,21 +81,25 @@ const AboutMenu = ({
     };
   });
 
-  const scrollToRef = (ref) => {
-    console.log(window.screen.height);
+  // FIXME not working on all zoom level
+  const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
+    if (!ref.current) return;
+
     const offset =
       parentRef.current.offsetTop +
+      ref.current.offsetHeight / 2 +
       ref.current.offsetTop -
-      window.screen.height / 4.5;
+      window.innerHeight / 2;
     window.scrollTo({ top: offset, behavior: "smooth" });
   };
-  const scrollToFocus = (i) => {
+  const scrollToFocus = (i: number) => {
     if (i < 0 || i >= itemsRef.length) return;
     if (!itemsRef[i].current) return;
     const offset =
       parentRef.current.offsetTop +
+      itemsRef[i].current.offsetHeight / 2 +
       itemsRef[i].current.offsetTop -
-      window.screen.height / 4.5;
+      window.innerHeight / 2;
     window.scrollTo({ top: offset, behavior: "smooth" });
   };
 

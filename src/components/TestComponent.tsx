@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-type Props = {};
 
 const TestComponent = () => {
   // console.log(typeof "asd");
