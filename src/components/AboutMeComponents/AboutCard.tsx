@@ -1,4 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
+import { motion } from "framer-motion";
+import { forwardRef } from "react";
 
 type AboutProps = {
   title?: string;
@@ -6,23 +7,23 @@ type AboutProps = {
   text: string | string[];
 };
 
-const AboutCard = ({ title, text, titleElem }: AboutProps) => {
-  if (typeof text == "string") {
+const AboutCard = forwardRef(({ title, text, titleElem }: AboutProps, ref) => {
+  if (typeof text === "string") {
     text = [text];
   }
 
   return (
-    <div className="w-full pb-12 pt-4">
+    <motion.div className="w-full pb-12 pt-4" ref={ref}>
       <p className="bold mb-4 text-[1.2rem] sm:text-xl">
         {titleElem ? titleElem : title}
       </p>
       <div className="space-y-2 text-[0.9rem] sm:text-base">
         {text.map((item) => {
-          return <p key={uuidv4()}>{item}</p>;
+          return <p key={item}>{item}</p>;
         })}
       </div>
-    </div>
+    </motion.div>
   );
-};
+});
 
 export default AboutCard;

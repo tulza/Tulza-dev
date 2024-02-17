@@ -8,7 +8,7 @@ import TestComponent from "@components/TestComponent";
 const MainPage = () => {
   return (
     <Fragment>
-      <IntroSection />
+      {/* <IntroSection /> */}
       <SectionFade />
       <AboutMeSection />
       <TestComponent />

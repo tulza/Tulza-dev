@@ -7,6 +7,8 @@ import LinkedinIcon from "@svg/LinkedinIcon.svg";
 import EmailIcon from "@svg/email.svg";
 import UoaLogo from "@svg/UoaLogo.png";
 import OtagoPolyLogo from "@svg/OtagoPolyLogo.png";
+import UpArrow from "@svg/UpArrow.svg";
+import DownArrow from "@svg/DownArrow.svg";
 
 export {
   itemFrame,
@@ -18,4 +20,6 @@ export {
   EmailIcon,
   UoaLogo,
   OtagoPolyLogo,
+  UpArrow,
+  DownArrow,
 };
