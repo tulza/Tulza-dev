@@ -9,6 +9,8 @@ import UoaLogo from "@svg/UoaLogo.png";
 import OtagoPolyLogo from "@svg/OtagoPolyLogo.png";
 import UpArrow from "@svg/UpArrow.svg";
 import DownArrow from "@svg/DownArrow.svg";
+import LeftArrow from "@svg/leftArrow.svg";
+import RightArrow from "@svg/rightArrow.svg";
 import linkIntact from "@svg/link-intact.svg";
 
 export {
@@ -24,4 +26,6 @@ export {
   UpArrow,
   DownArrow,
   linkIntact,
+  LeftArrow,
+  RightArrow,
 };

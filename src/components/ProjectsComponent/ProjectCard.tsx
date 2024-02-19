@@ -40,7 +40,7 @@ const ProjectCard = ({
   return (
     <div
       style={{ width: cardWidth, height: cardHeight }}
-      className="relative select-none overflow-hidden rounded-xl outline outline-1"
+      className="border-1 relative select-none overflow-hidden rounded-xl border"
       onMouseEnter={() => setfocus(true)}
       onMouseLeave={() => setfocus(false)}
     >

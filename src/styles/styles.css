@@ -57,3 +57,7 @@ html {
     rgba(255, 255, 255, 0)
   );
 }
+
+.test {
+  transform: translateX(calc(16%-100px));
+}
