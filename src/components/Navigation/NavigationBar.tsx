@@ -1,16 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import HighlightedText from "@components/HighlightedText";
 import CodeText from "@ornament/CodeText";
 import ButtonWrapper from "../Wrapper/ButtonWrapper";
 import { blob } from "@/assets/indexImage";
 import clsx from "clsx";
+import { SectionRefContext } from "@pages/MainPage";
 
 const NavigationBar = () => {
   const initButtonRef = useRef<HTMLDivElement | null>(null);
 
   const [hoveredButtonPos, setButtonPos] = useState({ left: 0, width: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const { IntroRef, AboutRef, ProjectRef } = useContext(SectionRefContext);
 
   useEffect(() => {
     if (initButtonRef.current) {
@@ -30,6 +32,11 @@ const NavigationBar = () => {
     setIsHovering(false);
   };
 
+  const HandleGotoSection = (ref: React.RefObject<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const { offsetTop } = ref.current;
+    window.scrollTo({ top: offsetTop, behavior: "smooth" });
+  };
   return (
     <>
       <Blobs />
@@ -40,17 +47,25 @@ const NavigationBar = () => {
           onMouseEnter={ButtonHovered}
           onMouseLeave={ButtonUnhovered}
         >
-          <ButtonWrapper>
+          <ButtonWrapper
+            OnClick={() => {
+              HandleGotoSection(AboutRef);
+            }}
+          >
             <HighlightedText text="About me" highlight="var(--blue)" />
           </ButtonWrapper>
         </div>
         <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-          <ButtonWrapper>
+          <ButtonWrapper
+            OnClick={() => {
+              HandleGotoSection(ProjectRef);
+            }}
+          >
             <HighlightedText text="Projects" highlight="var(--green)" />
           </ButtonWrapper>
         </div>
         <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-          <ButtonWrapper>
+          <ButtonWrapper OnClick={() => {}}>
             <HighlightedText text="Contacts" highlight="var(--yellow)" />
           </ButtonWrapper>
         </div>

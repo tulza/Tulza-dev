@@ -10,9 +10,18 @@ const MobileNavigation = () => {
   const handleToggle = () => {
     setToggleMenu(!isMenuToggled);
   };
+  const handleNavigation = (ref: React.RefObject<HTMLDivElement>) => {
+    handleToggle();
+    if (!ref.current) return;
+    const { offsetTop } = ref.current;
+    window.scrollTo({ top: offsetTop, behavior: "instant" });
+  };
   return (
     <>
-      <MobNavMenu isToggled={isMenuToggled} />
+      <MobNavMenu
+        isToggled={isMenuToggled}
+        NavigateSection={handleNavigation}
+      />
       <Blobs />
       <div className="bold hover relative flex h-[5rem] w-full select-none items-center justify-between bg-black px-[2rem] tracking-wider">
         <CodeText text="a" />
@@ -25,6 +34,7 @@ const MobileNavigation = () => {
     </>
   );
 };
+
 const MenuButton = React.memo(
   ({
     className,

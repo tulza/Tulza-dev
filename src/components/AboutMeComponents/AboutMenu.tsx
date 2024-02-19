@@ -81,7 +81,6 @@ const AboutMenu = ({
     };
   });
 
-  // FIXME not working on all zoom level
   const scrollToRef = (ref: React.RefObject<HTMLDivElement>) => {
     if (!ref.current) return;
 
@@ -97,7 +96,7 @@ const AboutMenu = ({
     if (!itemsRef[i].current) return;
     const offset =
       parentRef.current.offsetTop +
-      itemsRef[i].current.offsetHeight / 2 +
+      itemsRef[i].current.offsetHeight / 1.5 +
       itemsRef[i].current.offsetTop -
       window.innerHeight / 2;
     window.scrollTo({ top: offset, behavior: "smooth" });

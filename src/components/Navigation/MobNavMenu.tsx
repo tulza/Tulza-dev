@@ -1,13 +1,18 @@
 import HighlightedText from "@components/HighlightedText";
 import ButtonWrapper from "@components/Wrapper/ButtonWrapper";
+import { SectionRefContext } from "@pages/MainPage";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import { useContext } from "react";
 
 type Props = {
   className?: string;
   isToggled: boolean;
+  NavigateSection: any;
 };
-const MobNavMenu = ({ className, isToggled }: Props) => {
+const MobNavMenu = ({ className, isToggled, NavigateSection }: Props) => {
+  const { AboutRef, ProjectRef } = useContext(SectionRefContext);
+
   return (
     <motion.div
       className={clsx(
@@ -26,9 +31,27 @@ const MobNavMenu = ({ className, isToggled }: Props) => {
         animate={isToggled ? "open" : "closed"}
       >
         <div className="bold mr-20 mt-[8rem] flex flex-col items-end justify-center gap-6 text-nowrap text-3xl">
-          <MenuItems text="About me" highlight="var(--blue)" />
-          <MenuItems text="Projects" highlight="var(--green)" />
-          <MenuItems text="Contacts" highlight="var(--yellow)" />
+          <MenuItems
+            text="About me"
+            highlight="var(--blue)"
+            OnClick={() => {
+              NavigateSection(AboutRef);
+            }}
+          />
+          <MenuItems
+            text="Projects"
+            highlight="var(--green)"
+            OnClick={() => {
+              NavigateSection(ProjectRef);
+            }}
+          />
+          <MenuItems
+            text="Contacts"
+            highlight="var(--yellow)"
+            OnClick={() => {
+              NavigateSection(ProjectRef);
+            }}
+          />
         </div>
       </motion.div>
     </motion.div>

@@ -9,7 +9,7 @@ import AboutMeContents from "@components/AboutMeComponents/AboutMeContents";
 const AboutMeSection = () => {
   return (
     <>
-      <div className="grid-background-50 flex w-full flex-col items-center justify-start border-t pb-20 pt-[6rem] sm:pt-[15rem]">
+      <div className="grid-background-50 flex w-full flex-col items-center justify-start border-t pb-10 pt-[6rem] sm:pb-40 sm:pt-[15rem]">
         <HighlightedText
           text="About me"
           highlight="var(--blue)"
@@ -35,7 +35,6 @@ const AboutMeSection = () => {
         </div>
         <AboutMeContents />
       </div>
-      <div className="h-[1900px] w-full bg-gray-500"></div>
     </>
   );
 };
