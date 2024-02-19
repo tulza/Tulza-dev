@@ -1,14 +1,16 @@
 export const getTagColor = (tag: string) => {
-  const convertedtag = String(tag).toLowerCase();
-  switch (convertedtag) {
+  tag = String(tag).toLowerCase();
+  switch (tag) {
     case "react":
-      return "blue"; //blue
+      return "aqua"; //blue
     case "tailwind":
-      return "lightblue"; //lightblue
+    case "typescript":
+      return "blue"; //lightblue
     case "html/css":
       return "red"; //red
     case "unity":
     case "framer motion":
+    case "figma":
       return "gray"; //gray
     case "javascript":
     case "python":
@@ -20,6 +22,8 @@ export const getTagColor = (tag: string) => {
     case "c#":
     case "responsive":
       return "purple"; //purple
+    case "storybook":
+      return "pink"; //purple
 
     default:
       return "white"; //white

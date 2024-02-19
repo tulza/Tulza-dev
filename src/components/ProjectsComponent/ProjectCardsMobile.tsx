@@ -1,22 +1,14 @@
-import { LeftArrow, RightArrow, UpArrow } from "@/assets/indexImage";
-import {
-  CalcComponent,
-  StrayArtist,
-  adviceGenComp,
-  oldPortfolio,
-  solitaireGame,
-  urlShortening,
-} from "@/assets/indexProjectImage";
-import ProjectCard from "@components/ProjectsComponent/ProjectCard";
+import { LeftArrow, RightArrow } from "@/assets/indexImage";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import CardsIndex from "./CardsIndex";
 
 const ProjectCardsMobile = () => {
   const gap = 100;
   const width = 300;
   const totalItems = 6;
 
-  const [focus, setFocus] = useState(5);
+  const [focus, setFocus] = useState(1);
   const MoveButton = ({
     OnClick,
     image,
@@ -46,55 +38,12 @@ const ProjectCardsMobile = () => {
           animate={{ x: -(width + gap) * (focus - 1) }}
           transition={{ ease: "easeInOut" }}
         >
-          <ProjectCard
-            title="Old web portfolio"
-            image={oldPortfolio}
-            tags={[
-              "React",
-              "Javascript",
-              "Tailwind",
-              "Framer motion",
-              "html/css",
-            ]}
-          />
-          <ProjectCard
-            title="URL shortening page"
-            image={urlShortening}
-            tags={[
-              "React",
-              "Javascript",
-              "Tailwind",
-              "Responsive",
-              "Post api",
-              "html/css",
-            ]}
-          />
-          <ProjectCard
-            image={adviceGenComp}
-            title="Advice generator app"
-            tags={["html/css", "Javascript", "RestAPI"]}
-          />
-          <ProjectCard
-            title="Calculator app component"
-            image={CalcComponent}
-            tags={[
-              "React",
-              "Tailwind",
-              "Typescript",
-              "Framer motion",
-              "Responsive",
-            ]}
-          />
-          <ProjectCard
-            title="python simplifed solitaire"
-            image={solitaireGame}
-            tags={["Python", "Turtle graphics"]}
-          />
-          <ProjectCard
-            title='"stray artist" platformer'
-            image={StrayArtist}
-            tags={["C#", "Unity"]}
-          />
+          <CardsIndex index={0} />
+          <CardsIndex index={1} />
+          <CardsIndex index={2} />
+          <CardsIndex index={3} />
+          <CardsIndex index={4} />
+          <CardsIndex index={5} />
         </motion.div>
       </div>
       <div className="mt-8 flex gap-8">

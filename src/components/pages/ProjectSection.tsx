@@ -3,6 +3,7 @@ import HighlightedText from "@components/HighlightedText";
 import ProjectCardsDesktop from "../ProjectsComponent/ProjectCardsDesktop";
 import { ScreenProfileContext } from "@/App";
 import ProjectCardsMobile from "@components/ProjectsComponent/ProjectCardsMobile";
+import GraphBlock from "@components/ProjectsComponent/GraphBlock";
 
 const ProjectSection = () => {
   const isDesktop = useContext(ScreenProfileContext);
@@ -17,22 +18,9 @@ const ProjectSection = () => {
         />
         {isDesktop ? <ProjectCardsDesktop /> : <ProjectCardsMobile />}
       </div>
-      {/* <div className="mt-20 space-y-8">
-        <div className="flex divide-x-[1px] divide-white sm:w-[600px] lg:w-[1000px]">
-          <div className="bold mr-2 w-[100px]">React</div>
-          <div className="grid h-[60px] w-full gap-4">
-            <div className="ml-2 h-full w-full bg-white" />
-            <div className="ml-2 h-full w-full bg-white" />
-          </div>
-        </div>
-        <div className="flex divide-x-[1px] divide-white sm:w-[600px] lg:w-[1000px]">
-          <div className="bold mr-2 w-[100px]">Javascript</div>
-          <div className="grid h-[60px] w-full gap-4">
-            <div className="ml-2 h-full w-full bg-white" />
-            <div className="ml-2 h-full w-full bg-white" />
-          </div>
-        </div>
-      </div> */}
+      <div className="mt-20">
+        <GraphBlock />
+      </div>
     </div>
   );
 };

@@ -8,11 +8,24 @@
   --text: hsl(0, 0%, 100%);
   --text2: hsl(0, 0%, 100%);
 
-  --blue: #54a6c9;
-  --green: #79c954;
-  --purple: #9554c9;
-  --red: #c95454;
-  --yellow: #c9af54;
+  --tag_aqua: #84d8ff;
+  --tag_blue: #84bdff;
+  --tag_green: #abff84;
+  --tag_purple: #b984ff;
+  --tag_pink: #ff84b7;
+  --tag_red: #ff8484;
+  --tag_yellow: #ffe284;
+  --tag_gray: #bbbbbb;
+
+  --blue: #84d8ff;
+  --green: #abff84;
+  --purple: #b984ff;
+  --red: #ff8484;
+  --yellow: #ffe284;
+
+  --skill-experience: #2b84d7;
+  --skill-confidence: #d7922b;
+  --test: #f00;
 }
 
 * {
@@ -48,6 +61,19 @@ html {
   background-size: 50px;
 }
 
+.diagonal-background-16 {
+  background: url(/src/assets/svg/diagonalImg.svg);
+  background-size: 16px;
+}
+
+.diagonal-background-orange-16 {
+  background: url(/src/assets/svg/diagonalImgOrange.svg);
+  background-size: 16px;
+}
+.diagonal-background-blue-16 {
+  background: url(/src/assets/svg/diagonalImgBlue.svg);
+  background-size: 16px;
+}
 .fade {
   object-fit: cover;
   background: linear-gradient(

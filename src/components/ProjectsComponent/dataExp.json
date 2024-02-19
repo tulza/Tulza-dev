@@ -1,0 +1,38 @@
+{
+  "Html/Css": {
+    "experience": 95,
+    "confidence": 70
+  },
+  "React": {
+    "experience": 90,
+    "confidence": 60
+  },
+  "Tailwind": {
+    "experience": 60,
+    "confidence": 80
+  },
+  "Typescript": {
+    "experience": 30,
+    "confidence": 20
+  },
+  "Javascript": {
+    "experience": 50,
+    "confidence": 30
+  },
+  "Framer Motion": {
+    "experience": 50,
+    "confidence": 50
+  },
+  "Figma": {
+    "experience": 60,
+    "confidence": 40
+  },
+  "StoryBook": {
+    "experience": 30,
+    "confidence": 20
+  },
+  "Python": {
+    "experience": 60,
+    "confidence": 60
+  }
+}

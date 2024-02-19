@@ -8,8 +8,8 @@ type CardProps = {
   image?: string;
   title: string;
   tags: string[];
-  githubLink?;
-  pageLink?;
+  githubLink?: string;
+  pageLink?: string;
 };
 
 const ProjectCard = ({
@@ -54,21 +54,25 @@ const ProjectCard = ({
           {title}
         </motion.div>
         <div className="absolute right-0 top-0 mr-1 mt-1 space-y-2">
-          {pageLink && (
-            <motion.div
+          {!!pageLink && (
+            <motion.a
+              target="_blank"
+              href={pageLink}
               whileHover={hoverScaleButton}
               className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-lg bg-black p-1 outline outline-1"
             >
               <img src={linkIntact} className="w-[20px]"></img>
-            </motion.div>
+            </motion.a>
           )}
-          {githubLink && (
-            <motion.div
+          {!!githubLink && (
+            <motion.a
+              target="_blank"
+              href={githubLink}
               whileHover={hoverScaleButton}
               className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-xl bg-black p-1 outline outline-1"
             >
               <img src={GithubIcon} className="w-[20px]"></img>
-            </motion.div>
+            </motion.a>
           )}
         </div>
       </div>
@@ -95,7 +99,7 @@ const ProjectCard = ({
         >
           {tags.map((elem) => (
             <div
-              style={{ color: `var(--${getTagColor(elem)})` }}
+              style={{ color: `var(--tag_${getTagColor(elem)})` }}
               className="h-full whitespace-nowrap rounded-md bg-black px-1 outline outline-1"
               key={elem}
             >
@@ -105,7 +109,7 @@ const ProjectCard = ({
           {tagIsOverflow &&
             tags.map((elem) => (
               <div
-                style={{ color: `var(--${getTagColor(elem)})` }}
+                style={{ color: `var(--tag_${getTagColor(elem)})` }}
                 className="h-full whitespace-nowrap rounded-md bg-black px-1 outline outline-1"
                 key={elem}
               >

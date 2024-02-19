@@ -12,6 +12,7 @@ import DownArrow from "@svg/DownArrow.svg";
 import LeftArrow from "@svg/leftArrow.svg";
 import RightArrow from "@svg/rightArrow.svg";
 import linkIntact from "@svg/link-intact.svg";
+import diagonalImg from "@svg/diagonalImg.svg";
 
 export {
   itemFrame,
@@ -28,4 +29,5 @@ export {
   linkIntact,
   LeftArrow,
   RightArrow,
+  diagonalImg,
 };
