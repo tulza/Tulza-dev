@@ -22,6 +22,7 @@ export default {
       },
       screens: {
         nsm: { max: "639px" },
+        nlg: { max: "1023px" },
       },
       transitionProperty: {},
     },
