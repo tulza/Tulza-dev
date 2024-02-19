@@ -1,15 +1,17 @@
-import urlShortening from "@projectImage/urlShortening.svg";
 import adviceGenComp from "@projectImage/adviceGeneratorComponent.svg";
-import ageClacComp from "@projectImage/ageClacComponent.svg";
+import urlShortening from "@projectImage/urlShortening.svg";
+import StrayArtist from "@projectImage/StrayArtist.svg";
+import CalcComponent from "@projectImage/CalcComponent.svg";
 import solitaireGame from "@projectImage/pythonSolitaire.svg";
-import tipCalcComp from "@projectImage/tipCalculatorComponent.svg";
+import oldPortfolio from "@projectImage/oldPortfolio.svg";
 import noImage from "@projectImage/noImage.svg";
 
 export {
-  urlShortening,
+  CalcComponent,
   adviceGenComp,
-  ageClacComp,
+  StrayArtist,
   solitaireGame,
-  tipCalcComp,
+  oldPortfolio,
+  urlShortening,
   noImage,
 };

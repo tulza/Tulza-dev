@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { GithubIcon, linkIntact } from "@/assets/indexImage";
 import { noImage } from "@/assets/indexProjectImage";
+import { getTagColor } from "@styles/tagsColor";
 
 type CardProps = {
   image?: string;
@@ -24,6 +25,9 @@ const ProjectCard = ({
   const [tagIsOverflow, setTagOverflow] = useState(false);
   const hoverScaleButton = { scale: 1.1 };
   const tagContainerRef = useRef(null);
+
+  // config
+  const tagScrollDuration = 10;
 
   useEffect(() => {
     if (!tagContainerRef.current) return;
@@ -69,9 +73,13 @@ const ProjectCard = ({
         </div>
       </div>
       <motion.div
-        className="absolute flex h-[40px] w-full items-center rounded-t-lg bg-black py-2 outline outline-1"
+        className="absolute flex h-[40px] w-full items-center rounded-t-lg bg-[#1] py-2 outline outline-1 backdrop-blur-lg"
         initial={{ y: "-100%" }}
         animate={isFocus ? { y: "1%" } : { y: "-100%" }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.2,
+        }}
       >
         {/* tags */}
         <motion.div
@@ -79,11 +87,16 @@ const ProjectCard = ({
           ref={tagContainerRef}
           initial={{ x: "0%" }}
           animate={tagIsOverflow ? { x: "-50%" } : {}}
-          transition={{ duration: 5, ease: "linear", repeat: Infinity }}
+          transition={{
+            duration: tagScrollDuration,
+            ease: "linear",
+            repeat: Infinity,
+          }}
         >
           {tags.map((elem) => (
             <div
-              className="h-full whitespace-nowrap rounded-md px-1 outline outline-1 "
+              style={{ color: `var(--${getTagColor(elem)})` }}
+              className="h-full whitespace-nowrap rounded-md bg-black px-1 outline outline-1"
               key={elem}
             >
               {elem}
@@ -92,7 +105,8 @@ const ProjectCard = ({
           {tagIsOverflow &&
             tags.map((elem) => (
               <div
-                className="h-full whitespace-nowrap rounded-md px-1 outline outline-1 "
+                style={{ color: `var(--${getTagColor(elem)})` }}
+                className="h-full whitespace-nowrap rounded-md bg-black px-1 outline outline-1"
                 key={elem}
               >
                 {elem}

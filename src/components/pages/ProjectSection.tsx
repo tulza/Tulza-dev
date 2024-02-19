@@ -1,4 +1,11 @@
-import { urlShortening } from "@/assets/indexProjectImage";
+import {
+  CalcComponent,
+  StrayArtist,
+  adviceGenComp,
+  oldPortfolio,
+  solitaireGame,
+  urlShortening,
+} from "@/assets/indexProjectImage";
 import HighlightedText from "@components/HighlightedText";
 import ProjectCard from "@components/ProjectsComponent/ProjectCard";
 import InViewWrapper from "@components/Wrapper/InViewWrapper";
@@ -17,17 +24,17 @@ const ProjectSection = () => {
           <div className="flex h-[full] w-min gap-4 sm:flex-col lg:translate-x-[5%] lg:flex-row">
             <ProjectCard
               title="Old web portfolio"
+              image={oldPortfolio}
               tags={[
-                "items1",
-                "items2",
-                "items3",
-                "items4",
-                "items5",
-                "items6",
+                "React",
+                "Javascript",
+                "Tailwind",
+                "Framer motion",
+                "html/css",
               ]}
             />
             <ProjectCard
-              title="URL-shortening-API-page"
+              title="URL shortening page"
               image={urlShortening}
               tags={[
                 "React",
@@ -38,12 +45,34 @@ const ProjectSection = () => {
                 "html/css",
               ]}
             />
-            <ProjectCard title="gamer" />
+            <ProjectCard
+              image={adviceGenComp}
+              title="Advice generator app"
+              tags={["html/css", "Javascript", "RestAPI"]}
+            />
           </div>
           <div className="flex h-[full] w-min gap-4 sm:flex-col lg:-translate-x-[5%] lg:flex-row">
-            <ProjectCard title="gamer" />
-            <ProjectCard title="gamer" />
-            <ProjectCard title="gamer" />
+            <ProjectCard
+              title="Calculator app component"
+              image={CalcComponent}
+              tags={[
+                "React",
+                "Tailwind",
+                "Typescript",
+                "Framer motion",
+                "Responsive",
+              ]}
+            />
+            <ProjectCard
+              title="python simplifed solitaire"
+              image={solitaireGame}
+              tags={["Python", "Turtle graphics"]}
+            />
+            <ProjectCard
+              title='"stray artist" platformer'
+              image={StrayArtist}
+              tags={["C#", "Unity"]}
+            />
           </div>
         </div>
       </div>
