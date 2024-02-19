@@ -3,6 +3,7 @@ import adviceGenComp from "@projectImage/adviceGeneratorComponent.svg";
 import ageClacComp from "@projectImage/ageClacComponent.svg";
 import solitaireGame from "@projectImage/pythonSolitaire.svg";
 import tipCalcComp from "@projectImage/tipCalculatorComponent.svg";
+import noImage from "@projectImage/noImage.svg";
 
 export {
   urlShortening,
@@ -10,4 +11,5 @@ export {
   ageClacComp,
   solitaireGame,
   tipCalcComp,
+  noImage,
 };

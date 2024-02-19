@@ -9,6 +9,7 @@ import UoaLogo from "@svg/UoaLogo.png";
 import OtagoPolyLogo from "@svg/OtagoPolyLogo.png";
 import UpArrow from "@svg/UpArrow.svg";
 import DownArrow from "@svg/DownArrow.svg";
+import linkIntact from "@svg/link-intact.svg";
 
 export {
   itemFrame,
@@ -22,4 +23,5 @@ export {
   OtagoPolyLogo,
   UpArrow,
   DownArrow,
+  linkIntact,
 };

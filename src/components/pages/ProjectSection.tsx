@@ -1,4 +1,8 @@
+import { urlShortening } from "@/assets/indexProjectImage";
 import HighlightedText from "@components/HighlightedText";
+import ProjectCard from "@components/ProjectsComponent/ProjectCard";
+import InViewWrapper from "@components/Wrapper/InViewWrapper";
+import { motion } from "framer-motion";
 
 const ProjectSection = () => {
   return (
@@ -10,15 +14,36 @@ const ProjectSection = () => {
           className="bold my-10 text-3xl"
         />
         <div className="flex gap-4 lg:flex-col">
-          <div className="flex h-[full] w-min gap-4 sm:flex-col lg:flex-row">
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
+          <div className="flex h-[full] w-min gap-4 sm:flex-col lg:translate-x-[5%] lg:flex-row">
+            <ProjectCard
+              title="Old web portfolio"
+              tags={[
+                "items1",
+                "items2",
+                "items3",
+                "items4",
+                "items5",
+                "items6",
+              ]}
+            />
+            <ProjectCard
+              title="URL-shortening-API-page"
+              image={urlShortening}
+              tags={[
+                "React",
+                "Javascript",
+                "Tailwind",
+                "Responsive",
+                "Post api",
+                "html/css",
+              ]}
+            />
+            <ProjectCard title="gamer" />
           </div>
-          <div className="flex h-[full] w-min gap-4 sm:flex-col lg:flex-row">
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
-            <div className="h-[200px] w-[300px] rounded-xl outline outline-1"></div>
+          <div className="flex h-[full] w-min gap-4 sm:flex-col lg:-translate-x-[5%] lg:flex-row">
+            <ProjectCard title="gamer" />
+            <ProjectCard title="gamer" />
+            <ProjectCard title="gamer" />
           </div>
         </div>
       </div>
