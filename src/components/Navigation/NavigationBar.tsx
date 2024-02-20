@@ -12,7 +12,7 @@ const NavigationBar = () => {
 
   const [hoveredButtonPos, setButtonPos] = useState({ left: 0, width: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const { IntroRef, AboutRef, ProjectRef } = useContext(SectionRefContext);
+  const { AboutRef, ProjectRef, ContactRef } = useContext(SectionRefContext);
 
   useEffect(() => {
     if (initButtonRef.current) {
@@ -35,6 +35,7 @@ const NavigationBar = () => {
   const HandleGotoSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (!ref.current) return;
     const { offsetTop } = ref.current;
+    console.log(offsetTop);
     window.scrollTo({ top: offsetTop, behavior: "smooth" });
   };
   return (
@@ -65,7 +66,11 @@ const NavigationBar = () => {
           </ButtonWrapper>
         </div>
         <div onMouseEnter={ButtonHovered} onMouseLeave={ButtonUnhovered}>
-          <ButtonWrapper OnClick={() => {}}>
+          <ButtonWrapper
+            OnClick={() => {
+              HandleGotoSection(ContactRef);
+            }}
+          >
             <HighlightedText text="Contacts" highlight="var(--yellow)" />
           </ButtonWrapper>
         </div>
