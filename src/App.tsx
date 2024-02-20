@@ -31,8 +31,8 @@ function App() {
     <ContextProvider>
       <Router basename="/Tulza-dev">
         <Routes>
-          <Route path="/home" element={<MainPage />} />
-          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </ContextProvider>

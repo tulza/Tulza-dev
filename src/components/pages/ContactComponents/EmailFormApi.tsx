@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const EmailFormApi = ({ className }: { className?: string }) => {
   const [status, setStatus] = useState("");
-  const [complete, setComplete] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     setStatus("sending...");
     const form = {
       firstName: e.target.fName.value,
@@ -59,7 +58,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
         </div>
         <InputField label="Email" id="email" />
         <div className="flex flex-col">
-          <label htmlFor="message">Message me!</label>
+          <label htmlFor="message">Message</label>
           <textarea
             className="max-h-[100px] rounded-xl bg-transparent p-2 outline outline-1 sm:max-h-[180px]"
             name="message"

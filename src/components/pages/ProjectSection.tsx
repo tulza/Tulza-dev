@@ -3,7 +3,6 @@ import HighlightedText from "@components/HighlightedText";
 import ProjectCardsDesktop from "./ProjectsComponent/ProjectCardsDesktop";
 import { ScreenProfileContext } from "@/App";
 import ProjectCardsMobile from "@pages/ProjectsComponent/ProjectCardsMobile";
-import GraphBlock from "@pages/ProjectsComponent/GraphBlock";
 
 const ProjectSection = React.forwardRef(
   (_, ref: ForwardedRef<HTMLDivElement>) => {

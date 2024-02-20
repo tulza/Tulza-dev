@@ -21,9 +21,9 @@ const ContactMeSection = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           />
           <EmailFormApi className="bold p-4 text-base sm:p-8 sm:text-xl" />
         </div>
-        <div className="bold flex flex-col items-center justify-center gap-4 whitespace-nowrap text-base sm:gap-8 sm:text-2xl lg:flex-row">
-          <p>Also available on</p>
-          <div className="mb-[2rem] flex items-center gap-4 sm:gap-8">
+        <div className="bold mb-[2rem] flex flex-col items-center justify-center gap-4 whitespace-nowrap text-base sm:gap-8 sm:text-2xl lg:flex-row">
+          <p className="h-min">Also available on</p>
+          <div className="flex items-center gap-4 sm:gap-8">
             <ContactLinkButton
               label="Github"
               image={GithubIcon}
