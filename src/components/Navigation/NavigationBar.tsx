@@ -35,7 +35,6 @@ const NavigationBar = () => {
   const HandleGotoSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (!ref.current) return;
     const { offsetTop } = ref.current;
-    console.log(offsetTop);
     window.scrollTo({ top: offsetTop, behavior: "smooth" });
   };
   return (

@@ -11,7 +11,7 @@ type Props = {
   NavigateSection: any;
 };
 const MobNavMenu = ({ className, isToggled, NavigateSection }: Props) => {
-  const { AboutRef, ProjectRef } = useContext(SectionRefContext);
+  const { AboutRef, ProjectRef, ContactRef } = useContext(SectionRefContext);
 
   return (
     <motion.div
@@ -49,7 +49,7 @@ const MobNavMenu = ({ className, isToggled, NavigateSection }: Props) => {
             text="Contacts"
             highlight="var(--yellow)"
             OnClick={() => {
-              NavigateSection(ProjectRef);
+              NavigateSection(ContactRef);
             }}
           />
         </div>

@@ -36,6 +36,8 @@
 html,
 #root {
   font-family: "Literal Regular";
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
   @apply h-[100vh] w-[100vw];
 }
 
