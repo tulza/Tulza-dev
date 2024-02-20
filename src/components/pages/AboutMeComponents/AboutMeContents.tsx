@@ -1,7 +1,7 @@
 import { ScreenProfileContext } from "@/App";
 import { useContext, useRef, useState } from "react";
-import AboutCard from "@components/AboutMeComponents/AboutCard";
-import AboutMenu from "@components/AboutMeComponents/AboutMenu";
+import AboutCard from "@pages/AboutMeComponents/AboutCard";
+import AboutMenu from "@pages/AboutMeComponents/AboutMenu";
 import { motion } from "framer-motion";
 import { AboutItemFocus } from "@/Framer/Variants";
 

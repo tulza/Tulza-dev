@@ -6,7 +6,7 @@ import {
   solitaireGame,
   urlShortening,
 } from "@/assets/indexProjectImage";
-import ProjectCard from "@components/ProjectsComponent/ProjectCard";
+import ProjectCard from "@pages/ProjectsComponent/ProjectCard";
 const CardsIndex = ({ index }: { index: number }) => {
   const ProjectCards = [
     <ProjectCard

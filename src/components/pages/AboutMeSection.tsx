@@ -4,17 +4,14 @@ import InViewWrapper from "@components/Wrapper/InViewWrapper";
 import AnimatedText from "@components/AnimatedText";
 import { AboutMeTextVariant, waveAnimVariant } from "@/Framer/Variants";
 
-import AboutMeContents from "@components/AboutMeComponents/AboutMeContents";
-import SectionSplitMargin from "@components/SectionSplitMargin";
+import AboutMeContents from "@pages/AboutMeComponents/AboutMeContents";
 import React, { ForwardedRef } from "react";
 
 const AboutMeSection = React.forwardRef(
   (_, ref: ForwardedRef<HTMLDivElement>) => {
     return (
       <>
-        <div className="grid-background-50 flex w-full flex-col items-center justify-start border-t pb-10 sm:pb-40">
-          <SectionSplitMargin />
-          {/*due to the page structure the ref has been decidedly put here :pensive: */}
+        <div className="flex w-full flex-col items-center justify-start border-t">
           <div ref={ref} />
           <HighlightedText
             text="About me"

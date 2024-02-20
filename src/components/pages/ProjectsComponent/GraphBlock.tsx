@@ -2,6 +2,7 @@ import data from "./dataExp.json";
 import { getTagColor } from "@styles/tagsColor";
 import { motion } from "framer-motion";
 import InViewWrapper from "@components/Wrapper/InViewWrapper";
+import HighlightedText from "@components/HighlightedText";
 
 const GraphBlock = () => {
   const keys = Object.keys(data);
@@ -20,12 +21,12 @@ const GraphBlock = () => {
       <InViewWrapper className="flex" once>
         <div className="flex flex-col justify-end gap-4">
           {keys.map((elem: string) => (
-            <div
-              className="h-12 text-right"
-              key={elem}
-              style={{ color: `var(--tag_${getTagColor(elem)})` }}
-            >
-              {elem}
+            <div className="flex h-12 justify-end " key={elem}>
+              <HighlightedText
+                text={elem}
+                highlight={`var(--tag_${getTagColor(elem)})`}
+                className="bold h-min text-right"
+              />
             </div>
           ))}
         </div>

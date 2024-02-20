@@ -1,30 +1,30 @@
 import React, { ForwardedRef, useContext } from "react";
 import HighlightedText from "@components/HighlightedText";
-import ProjectCardsDesktop from "../ProjectsComponent/ProjectCardsDesktop";
+import ProjectCardsDesktop from "./ProjectsComponent/ProjectCardsDesktop";
 import { ScreenProfileContext } from "@/App";
-import ProjectCardsMobile from "@components/ProjectsComponent/ProjectCardsMobile";
-import GraphBlock from "@components/ProjectsComponent/GraphBlock";
-import SectionSplitMargin from "@components/SectionSplitMargin";
+import ProjectCardsMobile from "@pages/ProjectsComponent/ProjectCardsMobile";
+import GraphBlock from "@pages/ProjectsComponent/GraphBlock";
 
-const ProjectSection = React.forwardRef((_, ref:ForwardedRef<HTMLDivElement>) => {
-  const isDesktop = useContext(ScreenProfileContext);
+const ProjectSection = React.forwardRef(
+  (_, ref: ForwardedRef<HTMLDivElement>) => {
+    const isDesktop = useContext(ScreenProfileContext);
 
-  return (
-    <div className="flex w-full flex-col items-center pb-40">
-      <SectionSplitMargin />
-      <div className="flex h-[full] flex-col items-center" ref={ref}>
-        <HighlightedText
-          text="Projects"
-          highlight="var(--green)"
-          className="bold my-10 text-3xl"
-        />
-        {isDesktop ? <ProjectCardsDesktop /> : <ProjectCardsMobile />}
+    return (
+      <div className="flex w-full flex-col items-center pb-40">
+        <div className="flex h-[full] flex-col items-center" ref={ref}>
+          <HighlightedText
+            text="Projects"
+            highlight="var(--green)"
+            className="bold my-10 text-3xl"
+          />
+          {isDesktop ? <ProjectCardsDesktop /> : <ProjectCardsMobile />}
+        </div>
+        {/* <div className="mt-20">
+          <GraphBlock />
+        </div> */}
       </div>
-      <div className="mt-20">
-        <GraphBlock />
-      </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 export default ProjectSection;

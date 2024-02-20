@@ -30,9 +30,10 @@ const MainPage = () => {
       <SectionRefContext.Provider value={sectionObjectRef}>
         <IntroSection ref={ref} />
         <SectionSplit />
-        <AboutMeSection ref={ref2} />
-        <SectionSplit />
-        <ProjectSection ref={ref3} />
+        <div className="grid-background-50 ">
+          <AboutMeSection ref={ref2} />
+          <ProjectSection ref={ref3} />
+        </div>
         <SectionSplit />
         <ContactMeSection ref={ref4} />
       </SectionRefContext.Provider>
