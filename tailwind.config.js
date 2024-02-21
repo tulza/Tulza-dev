@@ -27,7 +27,7 @@ export default {
         navMenuBg: "var(--navMenuBg)",
         aboutContainer: "var(--aboutContainer)",
         cardTagBg: "var(--cardTagBg)",
-        item6: "var(--)",
+        text: "var(--text)",
         item7: "var(--)",
       },
       screens: {

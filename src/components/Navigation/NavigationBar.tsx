@@ -80,7 +80,7 @@ const NavigationBar = () => {
           </ButtonWrapper>
         </div>
         <motion.div
-          className="absolute bottom-3 h-2 w-2 rounded-full bg-white"
+          className="bg-text absolute bottom-3 h-2 w-2 rounded-full"
           animate={{
             left: hoveredButtonPos.left + hoveredButtonPos.width,
             opacity: isHovering ? 1 : 0,
