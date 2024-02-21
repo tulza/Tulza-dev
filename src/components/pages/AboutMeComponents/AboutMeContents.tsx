@@ -37,7 +37,7 @@ const AboutMeContents = () => {
         />
       )}
       {/* mb-[56px] is magic number to get perfect alignment */}
-      <div className="mb-[56px] w-full divide-y divide-[#585858] rounded-xl bg-[#252525] px-6 py-4 outline outline-1 outline-[#585858] sm:px-12">
+      <div className="bg-aboutContainer mb-[56px] w-full divide-y divide-[#585858] rounded-xl px-6 py-4 outline outline-1 outline-[#585858] sm:px-12">
         <motion.div
           variants={AboutItemFocus}
           initial="unfocused"

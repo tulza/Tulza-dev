@@ -1,11 +1,18 @@
 import HighlightedText from "@components/HighlightedText";
-import { ForwardedRef, forwardRef } from "react";
+import { ForwardedRef, forwardRef, useContext } from "react";
 import { ContactLinkButton } from "./ContactComponents/ContactLinkButton";
-import { GithubIcon, LinkedinIcon } from "@/assets/indexImage";
+import {
+  GithubIcon,
+  GithubIconLM,
+  LinkedinIcon,
+  LinkedinIconLM,
+} from "@/assets/indexImage";
 import SectionSplitMargin from "@components/SectionSplitMargin";
 import EmailFormApi from "./ContactComponents/EmailFormApi";
+import { ThemeContext } from "@/App";
 
 const ContactMeSection = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div>
       <SectionSplitMargin />
@@ -26,11 +33,15 @@ const ContactMeSection = forwardRef((_, ref: ForwardedRef<HTMLDivElement>) => {
           <div className="flex items-center gap-4 sm:gap-8">
             <ContactLinkButton
               label="Github"
-              image={GithubIcon}
+              image={theme == "light" ? GithubIconLM : GithubIcon}
               link="https://github.com/tulza"
             />
             <p>and</p>
-            <ContactLinkButton label="Linkedin" image={LinkedinIcon} link="" />
+            <ContactLinkButton
+              label="Linkedin"
+              image={theme == "light" ? LinkedinIconLM : LinkedinIcon}
+              link=""
+            />
           </div>
         </div>
       </div>

@@ -22,12 +22,15 @@
   --line: #ffffff;
   --text: hsl(0, 0%, 100%);
   --text2: hsl(0, 0%, 100%);
+  
   --blob-bg: #202020;
   --sectionSplit: rgb(19, 19, 19);
   --menu-block: white;
   --skill-experience: #2b84d7;
   --skill-confidence: #d7922b;
   --navMenuBg: #0009;
+  --aboutContainer: #252525;
+  --cardTagBg: black;
   --test: #f00;
 }
 
@@ -39,6 +42,8 @@
   --text2: hsl(0, 0%, 100%);
   --blob-bg: #8a8a8a;
   --navMenuBg: #fff3;
+  --aboutContainer: #e5e7e9;
+  --cardTagBg: white;
 
   --sectionSplit: rgb(255, 255, 255);
 }

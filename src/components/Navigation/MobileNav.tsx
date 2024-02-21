@@ -1,9 +1,9 @@
 import CodeText from "@ornament/CodeText";
 import clsx from "clsx";
-import { color, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useContext, useState } from "react";
 import MobNavMenu from "./MobNavMenu";
-import { blob } from "@/assets/indexImage";
+import { blob, blobLM } from "@/assets/indexImage";
 import { ThemeContext } from "@/App";
 
 const MobileNavigation = () => {
@@ -85,12 +85,13 @@ const MenuButton = React.memo(
 );
 
 const Blobs = () => {
+  const { theme } = useContext(ThemeContext);
   const bloboffsets = [0, 90, 180];
   const durations = [7, 17, 31];
   return (
     <>
       <motion.img
-        src={blob}
+        src={theme == "light" ? blobLM : blob}
         className="absolute left-0 z-10 w-[25rem]"
         initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[0] }}
         animate={{ rotate: 360 + bloboffsets[0] }}
@@ -101,7 +102,7 @@ const Blobs = () => {
         }}
       />
       <motion.img
-        src={blob}
+        src={theme == "light" ? blobLM : blob}
         className="absolute left-0 z-10 w-[25rem]"
         initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[1] }}
         animate={{ rotate: 360 + bloboffsets[1] }}
@@ -112,7 +113,7 @@ const Blobs = () => {
         }}
       />{" "}
       <motion.img
-        src={blob}
+        src={theme == "light" ? blobLM : blob}
         className="absolute left-0 z-10 w-[25rem]"
         initial={{ x: "-30%", y: "-60%", rotate: bloboffsets[2] }}
         animate={{ rotate: 360 + bloboffsets[2] }}

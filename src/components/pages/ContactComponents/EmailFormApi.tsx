@@ -86,7 +86,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
           <p className="text-base">{status}&nbsp;</p>
           <button
             type="submit"
-            className="m-2 w-min rounded-xl bg-black px-8 py-2 outline outline-1"
+            className="m-2 w-min rounded-xl px-8 py-2 outline outline-1"
           >
             {status ? (status == "Thank you!" ? ":)" : "...") : "send"}
           </button>

@@ -77,7 +77,7 @@ const MenuItems = ({ text, highlight = "white", OnClick }: TextProps) => {
         <ButtonWrapper OnClick={OnClick}>
           <HighlightedText text={text} highlight={highlight} />
         </ButtonWrapper>
-        <hr className="absolute mb-4 mt-1 w-[120%] -translate-x-10 border-white" />
+        <hr className="border-line absolute mb-4 mt-1 w-[120%] -translate-x-10" />
       </motion.div>
     </>
   );

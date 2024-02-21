@@ -1,9 +1,16 @@
-import { LeftArrow, RightArrow } from "@/assets/indexImage";
+import {
+  LeftArrow,
+  LeftArrowLM,
+  RightArrow,
+  RightArrowLM,
+} from "@/assets/indexImage";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CardsIndex from "./CardsIndex";
+import { ThemeContext } from "@/App";
 
 const ProjectCardsMobile = () => {
+  const { theme } = useContext(ThemeContext);
   const gap = 100;
   const width = 300;
   const totalItems = 6;
@@ -49,7 +56,7 @@ const ProjectCardsMobile = () => {
       <div className="mt-8 flex gap-8">
         <MoveButton
           className="-rotate-90"
-          image={LeftArrow}
+          image={theme == "light" ? LeftArrowLM : LeftArrow}
           OnClick={() => {
             if (focus == 1) return;
             setFocus(focus - 1);
@@ -59,7 +66,7 @@ const ProjectCardsMobile = () => {
           {focus}/{totalItems}
         </div>
         <MoveButton
-          image={RightArrow}
+          image={theme == "light" ? RightArrowLM : RightArrow}
           OnClick={() => {
             if (focus == 6) return;
             setFocus(focus + 1);

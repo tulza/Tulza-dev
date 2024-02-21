@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { GithubIcon, linkIntact } from "@/assets/indexImage";
+import { useContext, useEffect, useRef, useState } from "react";
+import {
+  GithubIcon,
+  GithubIconLM,
+  linkIntact,
+  linkIntactLM,
+} from "@/assets/indexImage";
 import { noImage } from "@/assets/indexProjectImage";
 import { getTagColor } from "@styles/tagsColor";
+import { ThemeContext } from "@/App";
 
 type CardProps = {
   image?: string;
@@ -25,6 +31,7 @@ const ProjectCard = ({
   const [tagIsOverflow, setTagOverflow] = useState(false);
   const hoverScaleButton = { scale: 1.1 };
   const tagContainerRef = useRef(null);
+  const { theme } = useContext(ThemeContext);
 
   // config
   const tagScrollDuration = 10;
@@ -49,7 +56,7 @@ const ProjectCard = ({
         <motion.div
           initial={{ y: "0%" }}
           animate={isFocus ? { y: "-120%" } : { y: "0%" }}
-          className="absolute top-0 ml-1 mt-1 rounded-lg bg-black p-1 outline outline-1"
+          className="bg-cardTagBg absolute top-0 ml-1 mt-1 rounded-lg p-1 outline outline-1"
         >
           {title}
         </motion.div>
@@ -59,9 +66,12 @@ const ProjectCard = ({
               target="_blank"
               href={pageLink}
               whileHover={hoverScaleButton}
-              className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-lg bg-black p-1 outline outline-1"
+              className="bg-cardTagBg grid aspect-square w-[30px] cursor-pointer place-items-center rounded-lg p-1 outline outline-1"
             >
-              <img src={linkIntact} className="w-[20px]"></img>
+              <img
+                src={theme == "light" ? linkIntactLM : linkIntact}
+                className="w-[20px]"
+              ></img>
             </motion.a>
           )}
           {!!githubLink && (
@@ -69,9 +79,12 @@ const ProjectCard = ({
               target="_blank"
               href={githubLink}
               whileHover={hoverScaleButton}
-              className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-xl bg-black p-1 outline outline-1"
+              className="bg-cardTagBg grid aspect-square w-[30px] cursor-pointer place-items-center rounded-xl p-1 outline outline-1"
             >
-              <img src={GithubIcon} className="w-[20px]"></img>
+              <img
+                src={theme == "light" ? GithubIconLM : GithubIcon}
+                className="w-[20px]"
+              ></img>
             </motion.a>
           )}
         </div>

@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import HighlightedText from "@components/HighlightedText";
 import CodeText from "@ornament/CodeText";
 import ButtonWrapper from "../Wrapper/ButtonWrapper";
-import { blob } from "@/assets/indexImage";
+import { blob, blobLM } from "@/assets/indexImage";
 import clsx from "clsx";
 import { SectionRefContext } from "@pages/MainPage";
+import { ThemeContext } from "@/App";
 
 const NavigationBar = () => {
   const initButtonRef = useRef<HTMLDivElement | null>(null);
@@ -95,10 +96,12 @@ const NavigationBar = () => {
 const Blobs = () => {
   const bloboffsets = [0, 90, 180];
   const durations = [7, 17, 31];
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
       <motion.img
-        src={blob}
+        src={theme ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[30rem] blur-sm`,
         )}
@@ -111,7 +114,7 @@ const Blobs = () => {
         }}
       />
       <motion.img
-        src={blob}
+        src={theme ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[32rem] blur-[2px]`,
         )}
@@ -124,7 +127,7 @@ const Blobs = () => {
         }}
       />{" "}
       <motion.img
-        src={blob}
+        src={theme ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[35rem]`,
         )}

@@ -1,5 +1,11 @@
+import { ThemeContext } from "@/App";
 import { AboutMenuFocus } from "@/Framer/Variants";
-import { DownArrow, UpArrow } from "@/assets/indexImage";
+import {
+  DownArrow,
+  DownArrowLM,
+  UpArrow,
+  UpArrowLM,
+} from "@/assets/indexImage";
 import ButtonWrapper from "@components/Wrapper/ButtonWrapper";
 import {
   motion,
@@ -8,7 +14,7 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 // i'm sorry
 const AboutMenu = ({
@@ -24,6 +30,7 @@ const AboutMenu = ({
   focus: any;
   setFocus: any;
 }) => {
+  const { theme } = useContext(ThemeContext);
   const [isMaxStick, setIsMaxStick] = useState(false);
   const { scrollY } = useScroll();
   const ScrollVelocity = useVelocity(scrollY);
@@ -108,7 +115,7 @@ const AboutMenu = ({
       style={{ y: velocityFactor }}
       ref={menuRef}
     >
-      <div className=" w-[200px] space-y-4 rounded-xl bg-[#252525] p-4 px-2 outline outline-1  outline-[#585858] lg:w-[300px] lg:px-2">
+      <div className=" bg-aboutContainer w-[200px] space-y-4 rounded-xl p-4 px-2 outline outline-1  outline-[#585858] lg:w-[300px] lg:px-2">
         {itemsRef.map((elemRef, i) => {
           return (
             <motion.div
@@ -132,8 +139,11 @@ const AboutMenu = ({
           className="rounded-full"
           OnClick={() => scrollToFocus(focus - 1)}
         >
-          <div className="relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full bg-[#252525] outline outline-1 outline-[#585858]">
-            <img src={UpArrow} className="z-10 w-6" />
+          <div className="bg-aboutContainer relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full outline outline-1 outline-[#585858]">
+            <img
+              src={theme == "light" ? UpArrowLM : UpArrow}
+              className="z-10 w-6"
+            />
             <motion.div
               className="absolute aspect-square w-0 rounded-full bg-[#2c2c2c]"
               variants={{ hovered: { width: "100%" } }}
@@ -144,8 +154,11 @@ const AboutMenu = ({
           className="rounded-full"
           OnClick={() => scrollToFocus(focus + 1)}
         >
-          <div className="relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full bg-[#252525] outline outline-1 outline-[#585858]">
-            <img src={DownArrow} className="z-10 w-6" />
+          <div className="bg-aboutContainer relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full outline outline-1 outline-[#585858]">
+            <img
+              src={theme == "light" ? DownArrowLM : DownArrow}
+              className="z-10 w-6"
+            />
             <motion.div
               className="absolute aspect-square w-0 rounded-full bg-[#2c2c2c]"
               variants={{ hovered: { width: "100%" } }}
