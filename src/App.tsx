@@ -13,22 +13,29 @@ import { createContext } from "react";
 import { useMediaQuery } from "@hooks/usMediaQuery";
 //pages
 import MainPage from "@pages/MainPage";
+import ThemeButton from "@components/ThemeButton";
+import { useTheme } from "@hooks/useTheme";
 
 export const ScreenProfileContext = createContext(false);
+export const ThemeContext = createContext<any>(null);
 
 function App() {
   const isDesktop = useMediaQuery("(min-width:640px)");
+  const { theme, setTheme } = useTheme();
 
   const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     return (
       <ScreenProfileContext.Provider value={isDesktop}>
-        {children}
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+          {children}
+        </ThemeContext.Provider>
       </ScreenProfileContext.Provider>
     );
   };
 
   return (
     <ContextProvider>
+      <ThemeButton />
       <Router basename="/Tulza-dev">
         <Routes>
           <Route path="/" element={<MainPage />} />

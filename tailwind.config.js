@@ -19,6 +19,16 @@ export default {
         red: "var(--red)",
         yellow: "var(--yellow)",
         background: "var(--background)",
+
+        Blob: "var(--blob-bg)",
+
+        line: "var(--line)",
+        menuBlock: "var(--menu-block)",
+        navMenuBg: "var(--navMenuBg)",
+        item4: "var(--)",
+        item5: "var(--)",
+        item6: "var(--)",
+        item7: "var(--)",
       },
       screens: {
         nsm: { max: "639px" },

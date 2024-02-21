@@ -20,7 +20,7 @@ const CodeText = ({
         "textStroke cursor-pointer select-none whitespace-nowrap text-3xl font-bold text-transparent",
         `${className}`,
       )}
-      whileHover={{ color: color }}
+      whileHover={color && { color: color }}
       style={{ WebkitTextStrokeColor: color }}
     >
       {/* <{text}/>  */}

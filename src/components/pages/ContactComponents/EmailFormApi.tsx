@@ -1,18 +1,29 @@
 import emailJs from "@emailjs/browser";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const EmailFormApi = ({ className }: { className?: string }) => {
   const [status, setStatus] = useState("");
+  const [isValidEmail, setValidEmail] = useState(true);
+  const validateEmail = (email: string) => {
+    const re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
   const handleSubmit = (e: any) => {
-    setStatus("sending...");
     const form = {
-      firstName: e.target.fName.value,
-      lastName: e.target.lName.value,
+      firstName: e.target.Name.value,
+      lastName: "",
       email: e.target.email.value,
       message: e.target.message.value,
     };
-    console.log(form);
+    if (!validateEmail(form.email)) {
+      setValidEmail(false);
+      console.log("invalid email");
+      return;
+    }
+    setStatus("sending...");
     emailJs
       .send("service_1ky3x8k", "template_o64krx7", form, "uGbBWlRG9lo-8cow6")
       .then((res) => {
@@ -49,25 +60,30 @@ const EmailFormApi = ({ className }: { className?: string }) => {
           if (!status) handleSubmit(e);
         }}
       >
-        <p className="bold border-b pb-1 text-xl sm:mb-16 sm:text-2xl">
+        <p className="bold mb-4 border-b pb-1 text-xl sm:mb-12 sm:text-2xl">
           Message me!
         </p>
         <div className="grid grid-cols-2 gap-8">
-          <InputField label="First Name" id="fName" />
-          <InputField label="Last Name" id="lName" />
+          <InputField label="Name" id="Name" />
+          <InputField
+            label="Email"
+            id="email"
+            isError={!isValidEmail}
+            OnClick={() => setValidEmail(true)}
+            errorMessage="bad email"
+          />
         </div>
-        <InputField label="Email" id="email" />
         <div className="flex flex-col">
           <label htmlFor="message">Message</label>
           <textarea
-            className="max-h-[100px] rounded-xl bg-transparent p-2 outline outline-1 sm:max-h-[180px]"
+            className="max-h-[100px] min-h-[100px] rounded-xl bg-transparent p-2 outline outline-1 sm:max-h-[180px] sm:min-h-[240px]"
             name="message"
             id="message"
             required
           />
         </div>
         <div className="absolute bottom-0 right-0 flex items-center">
-          <p className="text-base">{status}</p>
+          <p className="text-base">{status}&nbsp;</p>
           <button
             type="submit"
             className="m-2 w-min rounded-xl bg-black px-8 py-2 outline outline-1"
@@ -80,17 +96,37 @@ const EmailFormApi = ({ className }: { className?: string }) => {
   );
 };
 
-const InputField = ({ label, id }: { label: string; id: string }) => {
+const InputField = ({
+  label,
+  id,
+  isError,
+  errorMessage,
+  OnClick,
+}: {
+  label: string;
+  id: string;
+  errorMessage?: string;
+  isError?: boolean;
+  OnClick?: () => void;
+}) => {
   return (
     <div className="flex flex-col">
       <label htmlFor={id}>{label}</label>
-      <input
+      <motion.input
         type="text"
         name={id}
         id={id}
         required
-        className="h-[40px] border-b bg-transparent p-2"
+        className="h-[60px] border-b bg-transparent p-2"
+        animate={isError ? { borderColor: "#f00" } : {}}
+        onClick={OnClick}
       />
+      <motion.p
+        className="text-sm text-[#f00]"
+        animate={isError ? { opacity: 1 } : { opacity: 0 }}
+      >
+        {errorMessage}
+      </motion.p>
     </div>
   );
 };

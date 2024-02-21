@@ -16,7 +16,7 @@ const MobNavMenu = ({ className, isToggled, NavigateSection }: Props) => {
   return (
     <motion.div
       className={clsx(
-        "absolute right-0 top-0 z-[999] h-full w-0 overflow-hidden bg-[#0009] outline backdrop-blur-xl",
+        "bg-navMenuBg absolute right-0 top-0 z-[999] h-full w-0 overflow-hidden outline backdrop-blur-xl",
         `${className}`,
       )}
       initial={{ opacity: 0, width: 0 }}
@@ -73,7 +73,7 @@ type TextProps = {
 const MenuItems = ({ text, highlight = "white", OnClick }: TextProps) => {
   return (
     <>
-      <motion.div variants={ItemVariants} className="relative w-max">
+      <motion.div variants={ItemVariants} className="text-text relative w-max">
         <ButtonWrapper OnClick={OnClick}>
           <HighlightedText text={text} highlight={highlight} />
         </ButtonWrapper>

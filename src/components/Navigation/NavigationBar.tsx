@@ -40,8 +40,8 @@ const NavigationBar = () => {
   return (
     <>
       <Blobs />
-      <div className="relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b px-[5rem] tracking-wider backdrop-blur-md">
-        <CodeText text="a" className="bold" />
+      <div className="border-line relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b px-[5rem] tracking-wider backdrop-blur-md">
+        <CodeText text="a" className="bold" color="var(--text)" />
         <div
           ref={initButtonRef}
           onMouseEnter={ButtonHovered}

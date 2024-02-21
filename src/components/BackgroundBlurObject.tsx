@@ -4,7 +4,7 @@ const BackgroundBlurObject = ({ className }: { className: string }) => {
   return (
     <div
       className={clsx(
-        "absolute aspect-[2.5] w-[50%] rotate-[25deg] rounded-full bg-[#202020] blur-[150px]",
+        "bg-Blob absolute z-10 aspect-[2.5] w-[50%] rotate-[25deg] rounded-full blur-[150px]",
         `${className}`,
       )}
     />

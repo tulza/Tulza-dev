@@ -1,9 +1,10 @@
 import CodeText from "@ornament/CodeText";
 import clsx from "clsx";
-import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { color, motion } from "framer-motion";
+import React, { useContext, useState } from "react";
 import MobNavMenu from "./MobNavMenu";
 import { blob } from "@/assets/indexImage";
+import { ThemeContext } from "@/App";
 
 const MobileNavigation = () => {
   const [isMenuToggled, setToggleMenu] = useState(false);
@@ -16,6 +17,7 @@ const MobileNavigation = () => {
     const { offsetTop } = ref.current;
     window.scrollTo({ top: offsetTop, behavior: "instant" });
   };
+
   return (
     <>
       <MobNavMenu
@@ -23,8 +25,8 @@ const MobileNavigation = () => {
         NavigateSection={handleNavigation}
       />
       <Blobs />
-      <div className="bold hover relative flex h-[5rem] w-full select-none items-center justify-between bg-black px-[2rem] tracking-wider">
-        <CodeText text="a" />
+      <div className="bold hover relative flex h-[5rem] w-full select-none items-center justify-between bg-background px-[2rem] tracking-wider">
+        <CodeText text="a" color="var(--text)" />
         <MenuButton
           handleToggle={handleToggle}
           isToggled={isMenuToggled}
@@ -47,14 +49,14 @@ const MenuButton = React.memo(
   }) => {
     const Block = () => (
       <motion.div
-        className="aspect-square w-full bg-white"
+        className="bg-menuBlock aspect-square w-full"
         initial={isToggled ? { rotate: 0 } : { rotate: 45 }}
         animate={isToggled ? { rotate: 45 } : { rotate: 0 }}
       />
     );
     const ToggleBlock = () => (
       <motion.div
-        className="aspect-square w-full bg-white"
+        className="bg-menuBlock aspect-square w-full"
         initial={isToggled ? { scale: 1 } : { scale: 0 }}
         animate={isToggled ? { scale: 0 } : { scale: 1 }}
       />

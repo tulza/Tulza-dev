@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background: black;
-  --line: hsl(0, 0%, 100%);
-  --text: hsl(0, 0%, 100%);
-  --text2: hsl(0, 0%, 100%);
-
   --tag_aqua: #84d8ff;
   --tag_blue: #84bdff;
   --tag_green: #abff84;
@@ -23,9 +18,29 @@
   --red: #ff8484;
   --yellow: #ffe284;
 
+  --background: black;
+  --line: #ffffff;
+  --text: hsl(0, 0%, 100%);
+  --text2: hsl(0, 0%, 100%);
+  --blob-bg: #202020;
+  --sectionSplit: rgb(19, 19, 19);
+  --menu-block: white;
   --skill-experience: #2b84d7;
   --skill-confidence: #d7922b;
+  --navMenuBg: #0009;
   --test: #f00;
+}
+
+:root[theme-data="light"] {
+  --background: white;
+  --line: #8a8a8a;
+  --menu-block: black;
+  --text: hsl(0, 0%, 8%);
+  --text2: hsl(0, 0%, 100%);
+  --blob-bg: #8a8a8a;
+  --navMenuBg: #fff3;
+
+  --sectionSplit: rgb(255, 255, 255);
 }
 
 * {
@@ -48,18 +63,17 @@ html {
 }
 
 .textStroke {
-  -webkit-text-stroke: 1px white;
-  text-stroke: 1px white;
+  -webkit-text-stroke: 1px var(--text);
+  text-stroke: 1px var(--text);
   color: transparent;
-}
-
-.grid-background-30 {
-  background: url(/src/assets/svg/grid.svg);
-  background-size: 30px;
 }
 
 .grid-background-50 {
   background: url(/src/assets/svg/grid.svg);
+  background-size: 50px;
+}
+.grid-background-50-light {
+  background: url(/src/assets/svg/gridLight.svg);
   background-size: 50px;
 }
 
@@ -81,7 +95,7 @@ html {
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 0),
-    rgb(19, 19, 19) 50%,
+    var(--sectionSplit) 50%,
     rgba(255, 255, 255, 0)
   );
 }
