@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import MobNavMenu from "./MobNavMenu";
 import { blob, blobLM } from "@/assets/indexImage";
 import { ThemeContext } from "@/App";
+import ThemeButton from "@components/ThemeButton";
 
 const MobileNavigation = () => {
   const [isMenuToggled, setToggleMenu] = useState(false);
@@ -33,6 +34,7 @@ const MobileNavigation = () => {
           className="z-[9999]"
         />
       </div>
+      <ThemeButton className="absolute right-0 mr-[2rem] mt-[5rem]" />
     </>
   );
 };
@@ -49,14 +51,14 @@ const MenuButton = React.memo(
   }) => {
     const Block = () => (
       <motion.div
-        className="bg-menuBlock aspect-square w-full"
+        className="aspect-square w-full bg-menuBlock"
         initial={isToggled ? { rotate: 0 } : { rotate: 45 }}
         animate={isToggled ? { rotate: 45 } : { rotate: 0 }}
       />
     );
     const ToggleBlock = () => (
       <motion.div
-        className="bg-menuBlock aspect-square w-full"
+        className="aspect-square w-full bg-menuBlock"
         initial={isToggled ? { scale: 1 } : { scale: 0 }}
         animate={isToggled ? { scale: 0 } : { scale: 1 }}
       />

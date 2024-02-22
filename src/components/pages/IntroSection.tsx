@@ -22,6 +22,7 @@ import {
   TypescriptIcon,
   StoryBookIcon,
 } from "@/assets/indexIconImages";
+import ThemeButton from "@components/ThemeButton";
 
 const IntroSection = React.forwardRef(
   (_, ref: ForwardedRef<HTMLDivElement>) => {
@@ -61,9 +62,10 @@ const IntroSection = React.forwardRef(
             </motion.div>
           </div>
         )}
-        <div className=" flex w-full justify-center sm:mt-[2rem]">
+        <div className="flex w-full justify-center sm:mt-[2rem]">
           {isDesktop ? <NavigationBar /> : <MobileNavigation />}
         </div>
+
         <div className="pointer-events-none mt-[6rem] flex h-[100vh] select-none flex-col items-start pb-[10rem] sm:mt-[0rem] sm:items-center sm:justify-center">
           <div>
             {isDesktop ? <IntroText /> : <MoblieIntroText />}

@@ -1,5 +1,5 @@
 export class ThemeSettings {
-  static Theme = "light";
+  static Theme = "default";
 
   static getTheme() {
     return ThemeSettings.Theme;

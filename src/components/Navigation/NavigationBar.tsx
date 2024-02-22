@@ -7,6 +7,7 @@ import { blob, blobLM } from "@/assets/indexImage";
 import clsx from "clsx";
 import { SectionRefContext } from "@pages/MainPage";
 import { ThemeContext } from "@/App";
+import ThemeButton from "@components/ThemeButton";
 
 const NavigationBar = () => {
   const initButtonRef = useRef<HTMLDivElement | null>(null);
@@ -41,7 +42,8 @@ const NavigationBar = () => {
   return (
     <>
       <Blobs />
-      <div className="border-line relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b px-[5rem] tracking-wider backdrop-blur-md">
+      <ThemeButton className="absolute right-10 " />
+      <div className="relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b border-line px-[5rem] tracking-wider backdrop-blur-md">
         <CodeText text="a" className="bold" color="var(--text)" />
         <div
           ref={initButtonRef}
@@ -80,7 +82,7 @@ const NavigationBar = () => {
           </ButtonWrapper>
         </div>
         <motion.div
-          className="bg-text absolute bottom-3 h-2 w-2 rounded-full"
+          className="absolute bottom-3 h-2 w-2 rounded-full bg-text"
           animate={{
             left: hoveredButtonPos.left + hoveredButtonPos.width,
             opacity: isHovering ? 1 : 0,

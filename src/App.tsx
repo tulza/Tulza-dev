@@ -13,7 +13,6 @@ import { createContext } from "react";
 import { useMediaQuery } from "@hooks/usMediaQuery";
 //pages
 import MainPage from "@pages/MainPage";
-import ThemeButton from "@components/ThemeButton";
 import { useTheme } from "@hooks/useTheme";
 
 export const ScreenProfileContext = createContext(false);
@@ -35,7 +34,6 @@ function App() {
 
   return (
     <ContextProvider>
-      <ThemeButton />
       <Router basename="/Tulza-dev">
         <Routes>
           <Route path="/" element={<MainPage />} />

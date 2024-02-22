@@ -18,6 +18,8 @@ import RightArrowLM from "@svg/rightArrowLM.svg";
 import linkIntact from "@svg/link-intact.svg";
 import linkIntactLM from "@svg/link-intactLM.svg";
 import diagonalImg from "@svg/diagonalImg.svg";
+import sun from "@svg/sun.svg";
+import moon from "@svg/moon.svg";
 
 export {
   blob,
@@ -40,4 +42,6 @@ export {
   DownArrowLM,
   LeftArrowLM,
   RightArrowLM,
+  sun,
+  moon,
 };
