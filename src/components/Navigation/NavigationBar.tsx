@@ -42,7 +42,7 @@ const NavigationBar = () => {
   return (
     <>
       <Blobs />
-      <ThemeButton className="absolute right-10 " />
+      <ThemeButton className="absolute right-10 sm:mt-[6rem] lg:mt-0" />
       <div className="relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b border-line px-[5rem] tracking-wider backdrop-blur-md">
         <CodeText text="a" className="bold" color="var(--text)" />
         <div
@@ -99,11 +99,10 @@ const Blobs = () => {
   const bloboffsets = [0, 90, 180];
   const durations = [7, 17, 31];
   const { theme } = useContext(ThemeContext);
-
   return (
     <>
       <motion.img
-        src={theme ? blobLM : blob}
+        src={theme == "light" ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[30rem] blur-sm`,
         )}
@@ -116,7 +115,7 @@ const Blobs = () => {
         }}
       />
       <motion.img
-        src={theme ? blobLM : blob}
+        src={theme == "light" ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[32rem] blur-[2px]`,
         )}
@@ -129,7 +128,7 @@ const Blobs = () => {
         }}
       />{" "}
       <motion.img
-        src={theme ? blobLM : blob}
+        src={theme == "light" ? blobLM : blob}
         className={clsx(
           `pointer-events-none absolute left-[50%] right-0 w-[35rem]`,
         )}

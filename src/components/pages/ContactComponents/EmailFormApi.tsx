@@ -13,8 +13,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
   };
   const handleSubmit = (e: any) => {
     const form = {
-      firstName: e.target.Name.value,
-      lastName: "",
+      name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
     };
@@ -33,8 +32,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
         console.log("data from response ", JSON.stringify(data));
         if (data.status < 299) {
           console.log("successfully sent");
-          e.target.fName.value = "";
-          e.target.lName.value = "";
+          e.target.name.value = "";
           e.target.email.value = "";
           e.target.message.value = "";
           setStatus("Thank you!");
@@ -42,6 +40,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
       })
       .catch((error) => {
         console.warn("ERROR: \n", JSON.stringify(error));
+        console.log(error);
         setStatus("Error");
       });
   };
@@ -64,7 +63,7 @@ const EmailFormApi = ({ className }: { className?: string }) => {
           Message me!
         </p>
         <div className="grid grid-cols-2 gap-8">
-          <InputField label="Name" id="Name" />
+          <InputField label="name" id="name" />
           <InputField
             label="Email"
             id="email"
