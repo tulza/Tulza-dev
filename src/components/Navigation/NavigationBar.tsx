@@ -42,7 +42,7 @@ const NavigationBar = () => {
   return (
     <>
       <Blobs />
-      <ThemeButton className="absolute right-10 " />
+      <ThemeButton className="absolute right-10 sm:mt-[6rem] lg:mt-0" />
       <div className="relative flex h-[5rem] w-[50rem] select-none items-center justify-between border-b border-line px-[5rem] tracking-wider backdrop-blur-md">
         <CodeText text="a" className="bold" color="var(--text)" />
         <div

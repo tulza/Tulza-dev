@@ -22,7 +22,6 @@ import {
   TypescriptIcon,
   StoryBookIcon,
 } from "@/assets/indexIconImages";
-import ThemeButton from "@components/ThemeButton";
 
 const IntroSection = React.forwardRef(
   (_, ref: ForwardedRef<HTMLDivElement>) => {
