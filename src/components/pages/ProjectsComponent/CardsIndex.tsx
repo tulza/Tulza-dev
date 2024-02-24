@@ -26,7 +26,7 @@ const CardsIndex = ({ index }: { index: number }) => {
         "Javascript",
         "Tailwind",
         "Responsive",
-        "Rest API",
+        "RestAPI",
         "HTML/CSS",
       ]}
     />,
@@ -35,7 +35,7 @@ const CardsIndex = ({ index }: { index: number }) => {
       title="Advice generator app"
       githubLink="https://github.com/tulza/frontend-mentor-challenges/tree/main/3.%20advice-generator-app-main"
       pageLink="https://tulza.github.io/frontend-mentor-challenges/3.%20advice-generator-app-main/index.html"
-      tags={["HTML/CSS", "Javascript", "Rest API",]}
+      tags={["HTML/CSS", "Javascript", "RestAPI",]}
     />,
     <ProjectCard
       title="Calculator app component"
