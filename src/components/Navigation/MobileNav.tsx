@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import React, { useContext, useState } from "react";
 import MobNavMenu from "./MobNavMenu";
-import { blob, blobLM } from "@/assets/indexImage";
+import { blob, blobLM } from "@svg/index";
 import { ThemeContext } from "@/App";
 import ThemeButton from "@components/ThemeButton";
 

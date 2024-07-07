@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ButtonWrapper from "./Wrapper/ButtonWrapper";
 import { ScreenProfileContext, ThemeContext } from "@/App";
-import { moon, sun } from "@/assets/indexImage";
+import { moon, sun } from "@svg/index";
 import clsx from "clsx";
 
 const ThemeButton = ({ className }: { className?: string }) => {

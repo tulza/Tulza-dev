@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
-import {
-  GithubIcon,
-  GithubIconLM,
-  linkIntact,
-  linkIntactLM,
-} from "@/assets/indexImage";
+import { GithubIcon, GithubIconLM, linkIntact, linkIntactLM } from "@svg/index";
 import { noImage } from "@/assets/indexProjectImage";
 import { getTagColor } from "@styles/tagsColor";
 import { ThemeContext } from "@/App";
@@ -56,7 +51,7 @@ const ProjectCard = ({
         <motion.div
           initial={{ y: "0%" }}
           animate={isFocus ? { y: "-120%" } : { y: "0%" }}
-          className="bg-cardTagBg absolute top-0 ml-1 mt-1 rounded-lg p-1 outline outline-1"
+          className="absolute top-0 ml-1 mt-1 rounded-lg bg-cardTagBg p-1 outline outline-1"
         >
           {title}
         </motion.div>
@@ -66,7 +61,7 @@ const ProjectCard = ({
               target="_blank"
               href={pageLink}
               whileHover={hoverScaleButton}
-              className="bg-cardTagBg grid aspect-square w-[30px] cursor-pointer place-items-center rounded-lg p-1 outline outline-1"
+              className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-lg bg-cardTagBg p-1 outline outline-1"
             >
               <img
                 src={theme == "light" ? linkIntactLM : linkIntact}
@@ -79,7 +74,7 @@ const ProjectCard = ({
               target="_blank"
               href={githubLink}
               whileHover={hoverScaleButton}
-              className="bg-cardTagBg grid aspect-square w-[30px] cursor-pointer place-items-center rounded-xl p-1 outline outline-1"
+              className="grid aspect-square w-[30px] cursor-pointer place-items-center rounded-xl bg-cardTagBg p-1 outline outline-1"
             >
               <img
                 src={theme == "light" ? GithubIconLM : GithubIcon}

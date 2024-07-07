@@ -1,9 +1,4 @@
-import {
-  LeftArrow,
-  LeftArrowLM,
-  RightArrow,
-  RightArrowLM,
-} from "@/assets/indexImage";
+import { LeftArrow, LeftArrowLM, RightArrow, RightArrowLM } from "@svg/index";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import CardsIndex from "./CardsIndex";

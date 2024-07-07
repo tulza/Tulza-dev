@@ -6,7 +6,7 @@ import {
   GithubIconLM,
   LinkedinIcon,
   LinkedinIconLM,
-} from "@/assets/indexImage";
+} from "@svg/index";
 import SectionSplitMargin from "@components/SectionSplitMargin";
 import EmailFormApi from "./ContactComponents/EmailFormApi";
 import { ThemeContext } from "@/App";
