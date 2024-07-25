@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion, useInView } from "framer-motion";
+import { motion, Transition, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -7,8 +7,8 @@ type AnimatedTextProps = {
   className?: string;
   type?: "word" | "letters";
   staggerChildren?: number;
-  TextVariants: any;
-  transition?: any;
+  TextVariants: Variants;
+  transition?: Transition;
   text: string;
   delayChild?: number;
 };
