@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@svg/*": ["./src/assets/svg/*"],
+      "@toolsIcon/*": ["./src/assets/Toolsicons/*"],
+      "@projectImage/*": ["./src/assets/projectImage/*"],
+      "@ornament/*": ["./src/components/ornament/*"],
+      "@pages/*": ["./src/components/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@api/*": ["./src/api/*"],
+      "@/*": ["./src/*"]
+      // "@template/*": ["src/*"],
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "typeRoots": ["../node_modules/@types", "../@types"]
+}

@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tag_aqua: #84d8ff;
+  --tag_blue: #84bdff;
+  --tag_green: #abff84;
+  --tag_purple: #b984ff;
+  --tag_pink: #ff84b7;
+  --tag_red: #ff8484;
+  --tag_yellow: #ffe284;
+  --tag_gray: #bbbbbb;
+
+  --blue: #84d8ff;
+  --green: #abff84;
+  --purple: #b984ff;
+  --red: #ff8484;
+  --yellow: #ffe284;
+
+  --background: black;
+  --line: #ffffff;
+  --text: hsl(0, 0%, 100%);
+  --text2: hsl(0, 0%, 100%);
+
+  --blob-bg: #202020;
+  --sectionSplit: rgb(19, 19, 19);
+  --menu-block: white;
+  --skill-experience: #2b84d7;
+  --skill-confidence: #d7922b;
+  --navMenuBg: #0009;
+  --aboutContainer: #252525;
+  --cardTagBg: black;
+  --test: #f00;
+}
+
+:root[theme-data="light"] {
+  --background: white;
+  --line: #8a8a8a;
+  --menu-block: black;
+  --text: hsl(0, 0%, 8%);
+  --text2: hsl(0, 0%, 100%);
+  --blob-bg: #8a8a8a;
+  --navMenuBg: #fff3;
+  --aboutContainer: #e5e7e9;
+  --cardTagBg: white;
+
+  --sectionSplit: rgb(255, 255, 255);
+}
+
+* {
+  /* for testing */
+  /* outline: solid; */
+}
+
+html,
+#root {
+  font-family: "Literal Regular";
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  @apply h-[100vh] w-[100vw];
+}
+
+html {
+  background-color: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.textStroke {
+  -webkit-text-stroke: 1px var(--text);
+  text-stroke: 1px var(--text);
+  color: transparent;
+}
+
+.grid-background-50 {
+  background: url(/src/assets/svg/grid.svg);
+  background-size: 50px;
+}
+.grid-background-50-light {
+  background: url(/src/assets/svg/gridLight.svg);
+  background-size: 50px;
+}
+
+.diagonal-background-16 {
+  background: url(/src/assets/svg/diagonalImg.svg);
+  background-size: 16px;
+}
+
+.diagonal-background-orange-16 {
+  background: url(/src/assets/svg/diagonalImgOrange.svg);
+  background-size: 16px;
+}
+.diagonal-background-blue-16 {
+  background: url(/src/assets/svg/diagonalImgBlue.svg);
+  background-size: 16px;
+}
+.fade {
+  object-fit: cover;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0),
+    var(--sectionSplit) 50%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.test {
+  transform: translateX(calc(16%-100px));
+}

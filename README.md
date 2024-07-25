@@ -1,24 +1,30 @@
+# React + TypeScript + Vite
 
-# Tulza dev Portfolio website for 2024
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This is my single page, fully responsive, and animated web portfolio.
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Live website
+## Expanding the ESLint configuration
 
-https://tulza.github.io/Tulza-dev/
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-| ![App Screenshot](https://i.imgur.com/naTV5fD_d.webp?maxwidth=500&fidelity=grand) |![App Screenshot](https://i.imgur.com/2frbImN_d.webp?maxwidth=500&fidelity=grand)   |
-| :---:   | :---: | 
-|  ![App Screenshot](https://i.imgur.com/d4U1dDh_d.webp?maxwidth=500&fidelity=grand)  | ![App Screenshot](https://i.imgur.com/U0ePpa8_d.webp?maxwidth=500&fidelity=grand)   |
+- Configure the top-level `parserOptions` property like this:
 
-## Tools 
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
+    tsconfigRootDir: __dirname,
+  },
+};
+```
 
-**React, Typescript, TailwindCSS, Framer-motion, Storybook, HTML/CSS, vite**
-
-
-## Related
-
-Tulza-dev-2023
-
-
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
