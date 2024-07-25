@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import HighlightedText from "@components/HighlightedText";
 import CodeText from "@ornament/CodeText";
 import ButtonWrapper from "../Wrapper/ButtonWrapper";
-import { blob, blobLM } from "@/assets/indexImage";
+import { blob, blobLM } from "@svg/index";
 import clsx from "clsx";
 import { SectionRefContext } from "@pages/MainPage";
 import { ThemeContext } from "@/App";

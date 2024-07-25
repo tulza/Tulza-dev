@@ -1,11 +1,6 @@
 import { ThemeContext } from "@/App";
 import { AboutMenuFocus } from "@/Framer/Variants";
-import {
-  DownArrow,
-  DownArrowLM,
-  UpArrow,
-  UpArrowLM,
-} from "@/assets/indexImage";
+import { DownArrow, DownArrowLM, UpArrow, UpArrowLM } from "@svg/index";
 import ButtonWrapper from "@components/Wrapper/ButtonWrapper";
 import {
   motion,
@@ -115,7 +110,7 @@ const AboutMenu = ({
       style={{ y: velocityFactor }}
       ref={menuRef}
     >
-      <div className=" bg-aboutContainer w-[200px] space-y-4 rounded-xl p-4 px-2 outline outline-1  outline-[#585858] lg:w-[300px] lg:px-2">
+      <div className=" w-[200px] space-y-4 rounded-xl bg-aboutContainer p-4 px-2 outline outline-1  outline-[#585858] lg:w-[300px] lg:px-2">
         {itemsRef.map((elemRef, i) => {
           return (
             <motion.div
@@ -139,7 +134,7 @@ const AboutMenu = ({
           className="rounded-full"
           OnClick={() => scrollToFocus(focus - 1)}
         >
-          <div className="bg-aboutContainer relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full outline outline-1 outline-[#585858]">
+          <div className="relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full bg-aboutContainer outline outline-1 outline-[#585858]">
             <img
               src={theme == "light" ? UpArrowLM : UpArrow}
               className="z-10 w-6"
@@ -154,7 +149,7 @@ const AboutMenu = ({
           className="rounded-full"
           OnClick={() => scrollToFocus(focus + 1)}
         >
-          <div className="bg-aboutContainer relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full outline outline-1 outline-[#585858]">
+          <div className="relative flex h-[40px] w-[80px] items-center justify-center overflow-hidden rounded-full bg-aboutContainer outline outline-1 outline-[#585858]">
             <img
               src={theme == "light" ? DownArrowLM : DownArrow}
               className="z-10 w-6"
