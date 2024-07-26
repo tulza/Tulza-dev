@@ -8,6 +8,25 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    /* Pathing*/
+    "baseUrl": ".",
+    "paths": {
+      // components
+      "@sections/*": ["./src/components/sections/*"],
+      "@wrapper/*": ["./src/components/wrappers/*"],
+      "@components/*": ["./src/components/*"],
+      // datas
+      "@texts/*": ["./src/data/texts/*"],
+      "@variants/*": ["./src/data/variants/*"],
+      "@data/*": ["./src/data/*"],
+      // hooks
+      "@hooks/*": ["./src/hooks/*"],
+      // ects.
+      "@lib/*": ["./src/lib/*"],
+      // base
+      "@/*": ["./src/*"]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
