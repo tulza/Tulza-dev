@@ -1,0 +1,10 @@
+[
+  {
+    "text": "Hello, I'm ",
+    "className": ""
+  },
+  {
+    "text": "Ashton",
+    "className": "*:before:content-[attr(text)] *:before:absolute text-white *:before:-translate-y-1 *:before:text-white"
+  }
+]

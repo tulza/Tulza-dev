@@ -1,11 +1,10 @@
 import { m } from 'framer-motion';
-import { IntroDescription, IntroText } from '../data';
 import { smoothTextBlur, typingAnim } from '../data/variants/animations';
-import { cn, nextTextDelayTime, timeTextDelay } from '../lib/utils';
+import { cn, nextTextDelayTime, timeTextDelay } from '@lib/utils';
 import { AnimatedText } from './AnimatedText';
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+import { IntroDescription, IntroText } from '@texts/index';
 
-const transitionTime = 5.5;
 const textStagger = 0.075;
 
 const delays1 = timeTextDelay(
@@ -14,12 +13,24 @@ const delays1 = timeTextDelay(
   textStagger
 );
 
-export const WelcomeText = () => {
+export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
+  useLayoutEffect(() => {
+    document.getElementById('root')?.classList.add('h-dvh');
+    document.getElementById('root')?.classList.add('overflow-hidden');
+  });
+
   const ref = useRef<HTMLDivElement>(null);
   const handleDeleteSelf = () => {
     if (!ref) return;
+    enableScroll();
     ref.current?.remove();
   };
+
+  const enableScroll = () => {
+    document.getElementById('root')?.classList.remove('h-dvh');
+    document.getElementById('root')?.classList.remove('overflow-hidden');
+  };
+
   return (
     <m.div
       ref={ref}
@@ -64,7 +75,7 @@ export const WelcomeText = () => {
               textAnimation={{ ...smoothTextBlur }}
               splitWord
               transition={{
-                staggerChildren: 0.3,
+                staggerChildren: 0.1,
                 delayChildren: 3,
               }}
             />

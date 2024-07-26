@@ -28,7 +28,7 @@ export const AnimatedText = ({
       whileInView="visible"
     >
       {items.map((letter, i) => (
-        <m.span key={i} {...textAnimation}>
+        <m.span key={i} {...textAnimation} {...{ text: letter }}>
           {letter}
         </m.span>
       ))}
