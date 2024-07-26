@@ -5,12 +5,13 @@ import { cn, nextTextDelayTime, timeTextDelay } from '../lib/utils';
 import { AnimatedText } from './AnimatedText';
 import { useRef } from 'react';
 
-const delay = 0.075;
+const transitionTime = 5.5;
+const textStagger = 0.075;
 
 const delays1 = timeTextDelay(
   Array.from(IntroText).map((item) => item.text),
-  delay,
-  delay
+  textStagger,
+  textStagger
 );
 
 export const WelcomeText = () => {
@@ -23,12 +24,20 @@ export const WelcomeText = () => {
     <m.div
       ref={ref}
       className="fixed z-[9999] flex h-full w-full flex-col items-center justify-center overflow-hidden bg-gray-800"
-      animate={{ height: 0, filter: 'blur(8px)' }}
-      transition={{ delay: 5.5 }}
+      animate={{ opacity: 0, filter: 'blur(8px)' }}
+      transition={{ delay: transitionTime }}
       onAnimationComplete={handleDeleteSelf}
     >
-      <div className="absolute top-0 z-10 h-[10%] w-full bg-black" />
-      <div className="absolute bottom-0 z-10 h-[10%] w-full bg-black" />
+      <m.div
+        className="absolute top-0 z-10 h-[10%] w-full bg-black"
+        animate={{ height: 0 }}
+        transition={{ delay: transitionTime }}
+      />
+      <m.div
+        className="absolute bottom-0 z-10 h-[10%] w-full bg-black"
+        animate={{ height: 0 }}
+        transition={{ delay: transitionTime }}
+      />
       <div className="flex">
         {Array.from(IntroText).map((item, i) => {
           return (
@@ -38,7 +47,7 @@ export const WelcomeText = () => {
               className={cn('text-3xl', item.className)}
               textAnimation={{ ...typingAnim }}
               transition={{
-                staggerChildren: delay,
+                staggerChildren: textStagger,
                 delayChildren: nextTextDelayTime(delays1, i, 1),
               }}
             />
