@@ -14,12 +14,12 @@ export const mergeAnimation = (animations: textVariant[]) => {
   };
 };
 // animations
-const blurIn: textVariant = {
+export const blurIn: textVariant = {
   hidden: { filter: 'blur(8px)' },
   visible: { filter: 'blur(0px)' },
 };
 
-const widen: textVariant = {
+export const widen: textVariant = {
   hidden: { width: 0 },
   visible: { width: 'auto' },
 };

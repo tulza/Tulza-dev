@@ -4,7 +4,7 @@
     "className": ""
   },
   {
-    "text": "Ashton",
+    "text": "Tulza",
     "className": "*:before:content-[attr(text)] *:before:absolute text-white *:before:-translate-y-1 *:before:text-white"
   }
 ]

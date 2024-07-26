@@ -17,17 +17,17 @@ html,
   overscroll-behavior: none;
   min-height: 100dvh;
   min-width: 100dvw;
-  background: hsl(var(--background));
 }
 
 html {
+  @apply bg-gray-900;
   color: hsl(var(--foreground));
   overflow-x: hidden;
 }
 
 .p3d {
   transform-style: preserve-3d;
-  perspective: 200px;
+  perspective: 100px;
 }
 
 .textStroke {

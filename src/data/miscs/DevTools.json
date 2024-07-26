@@ -1,26 +1,30 @@
 [
   {
     "tool": "Html/Css",
-    "icon": ""
+    "icon": "/SkillIcons/HTMLCSS.svg"
   },
   {
     "tool": "React",
-    "icon": ""
+    "icon": "/SkillIcons/React-Dark.svg"
   },
   {
-    "tool": "Tailwind",
-    "icon": ""
-  },
-  {
-    "tool": "Framer motion",
-    "icon": ""
+    "tool": "NextJS",
+    "icon": "/SkillIcons/NextJS-Dark.svg"
   },
   {
     "tool": "Typescript",
-    "icon": ""
+    "icon": "/SkillIcons/TypeScript.svg"
+  },
+  {
+    "tool": "Tailwind",
+    "icon": "/SkillIcons/TailwindCSS-Dark.svg"
+  },
+  {
+    "tool": "Framer motion",
+    "icon": "/SkillIcons/Framer-Dark.svg"
   },
   {
     "tool": "Figma",
-    "icon": ""
+    "icon": "/SkillIcons/Figma-Dark.svg"
   }
 ]

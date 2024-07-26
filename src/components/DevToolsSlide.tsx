@@ -1,13 +1,13 @@
 import { DevTools } from '@data/miscs';
+import { blurIn, fadeIn, mergeAnimation, pop } from '@variants/animations';
 import { m, Transition, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const devsTools = Array.from(DevTools);
 const toolsLength = devsTools.length;
-
 const textVariantOut: Variants = {
   inital: { y: '0%', opacity: 1 },
-  animate: { y: '-70%', opacity: 0, rotateX: '80deg', filter: 'blur(4px)' },
+  animate: { y: '-150%', opacity: 0, rotateX: '45deg', filter: 'blur(4px)', z: '-25px' },
 };
 const textVariantIn: Variants = {
   inital: { y: '0%', opacity: 0 },
@@ -15,15 +15,13 @@ const textVariantIn: Variants = {
 };
 
 const textTransition: Transition = {
-  duration: 0.75,
   type: 'spring',
   damping: 10,
-  stiffness: 75,
+  stiffness: 50,
 };
 
-const DevToolsSlide = () => {
+const DevToolsSlide = ({ delay }: { delay: number }) => {
   const [index, setIndex] = useState([0, 1]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -36,23 +34,32 @@ const DevToolsSlide = () => {
   };
 
   return (
-    <div className="bg-white/20">
+    <m.div
+      initial="hidden"
+      animate="visible"
+      variants={{ ...mergeAnimation([fadeIn, pop, blurIn]) }}
+      transition={{ delay }}
+    >
       <m.div
-        className="absolute flex flex-col whitespace-nowrap font-bold *:flex"
+        className="p3d absolute flex flex-col whitespace-nowrap font-bold *:flex *:max-h-min"
         key={index[0]}
         initial="inital"
         animate="animate"
       >
         <m.span variants={textVariantOut} transition={textTransition}>
           {devsTools[index[0]].tool}
-          <img src="" className="ml-2 aspect-square w-10" />
+          <span className="relative grid w-12 place-items-center">
+            <img src={devsTools[index[0]].icon} className="absolute right-0 aspect-square w-10" />
+          </span>
         </m.span>
         <m.span variants={textVariantIn} transition={textTransition}>
           {devsTools[index[1]].tool}
-          <img src="" className="ml-2 aspect-square w-10" />
+          <span className="relative grid w-12 place-items-center">
+            <img src={devsTools[index[1]].icon} className="absolute right-0 aspect-square w-10" />
+          </span>
         </m.span>
       </m.div>
-    </div>
+    </m.div>
   );
 };
 

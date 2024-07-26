@@ -8,7 +8,7 @@ function App() {
   return (
     <LazyMotion features={domAnimation}>
       <EnterWebsiteAnimation transitionTime={IntroDelay} />
-      <div className="text-foreground flex h-[4000px] w-dvw flex-col items-center overflow-x-hidden bg-gray-900">
+      <div className="text-foreground flex h-[4000px] w-dvw flex-col items-center overflow-x-hidden">
         <Hero delay={IntroDelay} />
       </div>
     </LazyMotion>
