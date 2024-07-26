@@ -42,12 +42,12 @@ export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
       <m.div
         className="absolute top-0 z-10 h-[10%] w-full bg-black"
         animate={{ height: 0 }}
-        transition={{ delay: transitionTime }}
+        transition={{ delay: transitionTime - 0.25 }}
       />
       <m.div
         className="absolute bottom-0 z-10 h-[10%] w-full bg-black"
         animate={{ height: 0 }}
-        transition={{ delay: transitionTime }}
+        transition={{ delay: transitionTime - 0.25 }}
       />
       <div className="flex">
         {Array.from(IntroText).map((item, i) => {

@@ -25,6 +25,11 @@ html {
   overflow-x: hidden;
 }
 
+.p3d {
+  transform-style: preserve-3d;
+  perspective: 200px;
+}
+
 .textStroke {
   -webkit-text-stroke: 1px hsl(var(--foreground));
   text-stroke: 1px hsl(var(--foreground));

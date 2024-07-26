@@ -6,12 +6,14 @@ interface AnimatedTextSequenceProps {
   textStagger?: number;
   className?: string;
   textJSON: { text: string; className: string }[];
+  delay?: number;
 }
 
 const AnimatedTextSequence = ({
   textJSON,
   textStagger = 0.075,
   className,
+  delay = 0,
 }: AnimatedTextSequenceProps) => {
   const delays = timeTextDelay(
     Array.from(textJSON).map((item) => item.text),
@@ -30,7 +32,7 @@ const AnimatedTextSequence = ({
             textAnimation={{ ...smoothTextBlur }}
             transition={{
               staggerChildren: textStagger,
-              delayChildren: nextTextDelayTime(delays, i, 1),
+              delayChildren: nextTextDelayTime(delays, i, 1) + delay,
             }}
           />
         );
