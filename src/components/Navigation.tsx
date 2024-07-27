@@ -39,7 +39,7 @@ const NavButton = ({ label, ...props }: NavButtonProps) => (
       />
       {label}
     </motion.button>
-    <div className="absolute bottom-0 h-2 w-2 rounded-md bg-white"></div>
+    {/* <div className="absolute bottom-0 h-2 w-2 rounded-md bg-white"></div> */}
   </div>
 );
 export default Navigation;

@@ -2,7 +2,7 @@ import { useTheme } from '@/App';
 import { ThemeManager } from '@/entities/ThemeManager';
 import { cn } from '@lib/utils';
 import { motion, Variants } from 'framer-motion';
-import { X } from 'lucide-react';
+import { ChevronRight, X } from 'lucide-react';
 import { useLayoutEffect, useState } from 'react';
 
 const sheetVariants: Variants = {
@@ -50,8 +50,8 @@ const ThemeSheet = () => {
           className="peer left-0 top-0 flex w-full cursor-pointer items-center justify-center border-b p-4 transition-colors hover:bg-white/20"
           onClick={toggleThemeSheet}
         >
-          <X className="absolute left-4 size-8" />
-          <p className="text-xl font-bold text-white">Themes</p>
+          <X className="absolute left-4 size-8 stroke-white" />
+          <p className="text-xl font-bold text-white">Change themes</p>
         </div>
         <div className="flex h-full w-full flex-col justify-center">
           {themes.map((theme, i) => (
@@ -67,8 +67,10 @@ const ThemeSheet = () => {
               {theme === selectedTheme && (
                 <motion.div
                   layoutId="selectedThemeBar"
-                  className="bg-foreground absolute left-0 top-0 z-10 h-full w-1"
-                />
+                  className="bg-foreground absolute left-0 top-0 z-50 grid h-full w-1 place-items-center"
+                >
+                  <ChevronRight />
+                </motion.div>
               )}
             </ThemeButton>
           ))}
@@ -84,7 +86,10 @@ interface ThemeButtonProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
 }
 const ThemeButton = ({ label, children, ...props }: ThemeButtonProps) => {
   return (
-    <div {...props} className="bg-background relative w-full p-4">
+    <div
+      {...props}
+      className="bg-background relative w-full cursor-pointer p-4 pl-8 hover:saturate-200"
+    >
       {children}
       {label}
     </div>

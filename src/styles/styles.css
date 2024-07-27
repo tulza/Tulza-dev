@@ -32,7 +32,7 @@
 
 :root[theme-data='light'] {
   --background: 0, 0%, 100%;
-  --secondary: 0, 0%, 80%;
+  --secondary: 0, 0%, 50%;
   --foreground: 0, 0%, 0%;
 }
 

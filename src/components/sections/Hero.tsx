@@ -6,7 +6,7 @@ import { memo } from 'react';
 
 const Hero = ({ delay = 0 }: { delay?: number }) => {
   return (
-    <div className="relative flex h-dvh w-dvw items-center justify-center text-white">
+    <div className="relative flex h-dvh w-dvw items-center justify-center overflow-hidden text-white">
       <div className="h-min select-none">
         <Blobs />
         <BgGradient />
@@ -15,7 +15,7 @@ const Hero = ({ delay = 0 }: { delay?: number }) => {
           className="textStroke text-8xl font-bold"
           delay={delay - 0.5}
         />
-        <div className="p3d text-foreground mt-4 flex text-2xl">
+        <div className="p3d mt-4 flex text-2xl text-foreground">
           <AnimatedTextSequence
             textJSON={HeroDescription}
             delay={delay + 0.75}
@@ -31,7 +31,7 @@ const Hero = ({ delay = 0 }: { delay?: number }) => {
 const BgGradient = memo(() => (
   <div className="w-d absolute left-[50%] top-[50%] h-0 w-0 origin-center -translate-x-[50%] -translate-y-[50%]">
     <motion.div
-      className="*:bg-secondary absolute grid h-0 w-0 place-items-center *:h-[4000px] *:w-[300px] *:-translate-y-[50%] *:rotate-[20deg] *:rounded-full *:blur-[250px]"
+      className="absolute grid h-0 w-0 place-items-center *:h-[4000px] *:w-[300px] *:-translate-y-[50%] *:rotate-[20deg] *:rounded-full *:bg-secondary *:blur-[250px]"
       animate={{ rotate: [0, 30, 0, -30, 0] }}
       transition={{ repeat: Infinity, ease: 'linear', duration: 20 }}
     >
@@ -50,6 +50,8 @@ const Blob = ({ style, ...props }: BlobProps) => {
   return (
     <motion.svg
       {...props}
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 360 }}
       style={style}
       className="absolute w-full"
       width="740"
@@ -71,19 +73,9 @@ const Blob = ({ style, ...props }: BlobProps) => {
 const Blobs = memo(() => {
   return (
     <div className="absolute left-[50%] top-0 aspect-square w-[600px] -translate-x-[50%] -translate-y-[100%]">
-      <Blob initial={{ rotate: 0 }} animate={{ rotate: 360 }} transition={{ duration: 7 }} />
-      <Blob
-        style={{ scale: 0.9, filter: 'blur(3px)' }}
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 11, from: 2 }}
-      />
-      <Blob
-        style={{ scale: 1.1, filter: 'blur(6px)' }}
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 19 }}
-      />
+      <Blob transition={{ duration: 7 }} />
+      <Blob style={{ scale: 0.9, filter: 'blur(3px)' }} transition={{ duration: 11 }} />
+      <Blob style={{ scale: 1.1, filter: 'blur(6px)' }} transition={{ duration: 19 }} />
     </div>
   );
 });
