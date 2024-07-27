@@ -4,11 +4,19 @@
 
 :root {
   --foreground: 0, 0%, 100%;
-  --background: 221, 39%, 11%; /*gray-900*/
-  --secondary: 216, 53%, 29%;
+  --background: 221, 39%, 11%;
+  --secondary: 216 53 29; /*hsl(216 53 29)*/
+}
+
+:root[theme-data='dark'] {
+  --background: 0, 0%, 0%;
+  --secondary: 0, 0%, 10%;
 }
 
 :root[theme-data='light'] {
+  --foreground: 0, 0%, 0%;
+  --background: 0, 0%, 100%;
+  --secondary: 0, 0%, 80%;
 }
 
 html,
@@ -21,9 +29,15 @@ html,
 }
 
 html {
-  @apply bg-gray-900;
+  @apply bg-background transition-colors duration-500;
   color: hsl(var(--foreground));
   overflow-x: hidden;
+}
+
+.lock {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
 }
 
 .p3d {

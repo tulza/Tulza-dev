@@ -6,7 +6,7 @@ export class ThemeManager {
   }
 
   static setTheme(theme: string) {
-    document.documentElement.setAttribute('theme-data', theme);
-    this.Theme = 'theme';
+    document.documentElement.setAttribute('theme-data', theme.toLowerCase());
+    this.Theme = theme.toLowerCase();
   }
 }

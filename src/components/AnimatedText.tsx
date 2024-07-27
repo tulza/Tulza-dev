@@ -1,4 +1,4 @@
-import { AnimationProps, HTMLMotionProps, LayoutProps, m } from 'framer-motion';
+import { AnimationProps, HTMLMotionProps, LayoutProps, motion } from 'framer-motion';
 import { cn } from '../lib/utils';
 
 interface AnimatedTextProps extends HTMLMotionProps<'div'> {
@@ -20,7 +20,7 @@ export const AnimatedText = ({
     : [...text];
 
   return (
-    <m.p
+    <motion.p
       {...props}
       viewport={{ once: true }}
       className={cn('flex *:whitespace-pre', className)}
@@ -28,10 +28,10 @@ export const AnimatedText = ({
       whileInView="visible"
     >
       {items.map((letter, i) => (
-        <m.span key={i} {...textAnimation} {...{ text: letter }}>
+        <motion.span key={i} {...textAnimation} {...{ text: letter }}>
           {letter}
-        </m.span>
+        </motion.span>
       ))}
-    </m.p>
+    </motion.p>
   );
 };

@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { smoothTextBlur, typingAnim } from '../data/variants/animations';
 import { cn, nextTextDelayTime, timeTextDelay } from '@lib/utils';
 import { AnimatedText } from './AnimatedText';
@@ -15,8 +15,7 @@ const delays1 = timeTextDelay(
 
 export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
   useLayoutEffect(() => {
-    document.getElementById('root')?.classList.add('h-dvh');
-    document.getElementById('root')?.classList.add('overflow-hidden');
+    document.getElementById('root')?.classList.add('lock');
   });
 
   const ref = useRef<HTMLDivElement>(null);
@@ -27,24 +26,23 @@ export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
   };
 
   const enableScroll = () => {
-    document.getElementById('root')?.classList.remove('h-dvh');
-    document.getElementById('root')?.classList.remove('overflow-hidden');
+    document.getElementById('root')?.classList.remove('lock');
   };
 
   return (
-    <m.div
+    <motion.div
       ref={ref}
       className="fixed z-[9999] flex h-full w-full flex-col items-center justify-center overflow-hidden bg-gray-800"
       animate={{ opacity: 0, filter: 'blur(8px)' }}
       transition={{ delay: transitionTime }}
       onAnimationComplete={handleDeleteSelf}
     >
-      <m.div
+      <motion.div
         className="absolute top-0 z-10 h-[10%] w-full bg-black"
         animate={{ height: 0 }}
         transition={{ delay: transitionTime - 0.25 }}
       />
-      <m.div
+      <motion.div
         className="absolute bottom-0 z-10 h-[10%] w-full bg-black"
         animate={{ height: 0 }}
         transition={{ delay: transitionTime - 0.25 }}
@@ -82,6 +80,6 @@ export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
           );
         })}
       </div>
-    </m.div>
+    </motion.div>
   );
 };

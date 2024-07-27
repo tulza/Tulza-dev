@@ -1,4 +1,4 @@
-import { HTMLMotionProps, m, useInView, UseInViewOptions } from 'framer-motion';
+import { HTMLMotionProps, m as motion, useInView, UseInViewOptions } from 'framer-motion';
 import { type ReactNode, useRef } from 'react';
 
 interface withInViewProps extends HTMLMotionProps<'div'> {
@@ -10,8 +10,8 @@ export const WithInView = ({ children, options, ...props }: withInViewProps) => 
   const ref = useRef<HTMLDivElement>(null);
   const InView = useInView(ref, options);
   return (
-    <m.div {...props} ref={ref} animate={InView ? 'animate' : 'initial'} >
+    <motion.div {...props} ref={ref} animate={InView ? 'animate' : 'initial'}>
       {children}
-    </m.div>
+    </motion.div>
   );
 };

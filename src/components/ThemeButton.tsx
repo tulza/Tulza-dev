@@ -1,5 +1,5 @@
 import { useTheme } from '@/App';
-import { m } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const themeVariant = {
   hover: {
@@ -12,19 +12,19 @@ const themeVariant = {
   },
 };
 const ThemeButton = () => {
-  const { handleToggleTheme } = useTheme();
+  const { toggleThemeSheet } = useTheme();
   return (
     <>
-      <m.button
-        className="rounded-full bg-black p-1"
+      <motion.button
+        className="rounded-full bg-black p-1 text-white"
         animate="unhover"
         whileHover="hover"
-        onClick={handleToggleTheme}
+        onClick={toggleThemeSheet}
       >
-        <m.div className="grid place-items-center rounded-full p-1.5" variants={themeVariant}>
+        <motion.div className="grid place-items-center rounded-full p-1.5" variants={themeVariant}>
           <div className="sw-full rounded-full bg-black p-1.5 px-8">Theme</div>
-        </m.div>
-      </m.button>
+        </motion.div>
+      </motion.button>
     </>
   );
 };

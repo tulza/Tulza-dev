@@ -1,6 +1,6 @@
 import { DevTools } from '@data/miscs';
 import { blurIn, fadeIn, mergeAnimation, pop, slideIn } from '@variants/animations';
-import { m, Transition, Variants } from 'framer-motion';
+import { motion, Transition, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const devsTools = Array.from(DevTools);
@@ -34,32 +34,32 @@ const DevToolsSlide = ({ delay }: { delay: number }) => {
   };
 
   return (
-    <m.div
+    <motion.div
       initial="hidden"
       animate="visible"
       variants={{ ...mergeAnimation([fadeIn, pop, blurIn, slideIn]) }}
       transition={{ delay }}
     >
-      <m.div
+      <motion.div
         className="p3d absolute flex flex-col whitespace-nowrap font-bold *:flex *:max-h-min"
         key={index[0]}
         initial="inital"
         animate="animate"
       >
-        <m.span variants={textVariantOut} transition={textTransition}>
+        <motion.span variants={textVariantOut} transition={textTransition}>
           {devsTools[index[0]].tool}
           <span className="relative grid w-12 place-items-center">
             <img src={devsTools[index[0]].icon} className="absolute right-0 aspect-square w-10" />
           </span>
-        </m.span>
-        <m.span variants={textVariantIn} transition={textTransition}>
+        </motion.span>
+        <motion.span variants={textVariantIn} transition={textTransition}>
           {devsTools[index[1]].tool}
           <span className="relative grid w-12 place-items-center">
             <img src={devsTools[index[1]].icon} className="absolute right-0 aspect-square w-10" />
           </span>
-        </m.span>
-      </m.div>
-    </m.div>
+        </motion.span>
+      </motion.div>
+    </motion.div>
   );
 };
 
