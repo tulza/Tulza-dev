@@ -2,13 +2,22 @@ import { domAnimation, LazyMotion } from 'framer-motion';
 
 import Hero from '@sections/Hero';
 import Navigation from '@components/Navigation';
-import { createContext, useState } from 'react';
-import ThemeDock from '@components/ThemeDock';
+import { createContext, useContext, useState } from 'react';
+import ThemeSheet from '@components/ThemeSheet';
+import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
 
 interface themeContext {
+  openTheme: boolean;
   handleToggleTheme: () => void;
 }
-export const ThemeContext = createContext({} as themeContext);
+const ThemeContext = createContext({} as themeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!Object.keys(context).length) {
+    throw new Error('useTheme must be used in a themeProvider');
+  }
+  return context;
+};
 
 function App() {
   const [openTheme, setOpenTheme] = useState(false);
@@ -17,13 +26,13 @@ function App() {
     setOpenTheme(!openTheme);
   };
 
-  const IntroDelay = 0;
+  const IntroDelay = 4;
   return (
     <>
-      <ThemeContext.Provider value={{ handleToggleTheme }}>
-        <ThemeDock />
+      <ThemeContext.Provider value={{ openTheme, handleToggleTheme }}>
         <LazyMotion features={domAnimation}>
-          {/* <EnterWebsiteAnimation transitionTime={IntroDelay} /> */}
+          <ThemeSheet />
+          <EnterWebsiteAnimation transitionTime={IntroDelay} />
           <Navigation />
           <Hero delay={IntroDelay} />
           <div className="via-background absolute z-10 h-[300px] w-dvw -translate-y-[50%] bg-gradient-to-t from-transparent to-transparent" />
