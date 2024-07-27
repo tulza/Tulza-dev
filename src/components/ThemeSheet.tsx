@@ -3,7 +3,7 @@ import { ThemeManager } from '@/entities/ThemeManager';
 import { cn } from '@lib/utils';
 import { motion, Variants } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const sheetVariants: Variants = {
   open: { x: '5%' },
@@ -13,8 +13,16 @@ const sheetVariants: Variants = {
 const themes = ['Original', 'Dark', 'Light', 'Ocean'];
 
 const ThemeSheet = () => {
-  const { openTheme: isOpen, toggleThemeSheet } = useTheme();
   const [selectedTheme, setSelectedTheme] = useState(themes[0]);
+  const { openTheme: isOpen, toggleThemeSheet } = useTheme();
+
+  useLayoutEffect(() => {
+    const savedTheme = ThemeManager.getSavedTheme();
+    if (savedTheme) {
+      handleSetTheme(savedTheme);
+    }
+  });
+
   const handleSetTheme = (theme: string) => {
     ThemeManager.setTheme(theme);
     setSelectedTheme(theme);

@@ -51,8 +51,11 @@ html,
   min-width: 100dvw;
 }
 
+* {
+  @apply transition-colors duration-0;
+}
 html {
-  @apply bg-background transition-colors duration-500;
+  @apply bg-background;
   color: hsl(var(--foreground));
   overflow-x: hidden;
 }
