@@ -10,7 +10,7 @@ const sheetVariants: Variants = {
   close: { x: '110%' },
 };
 
-const themes = ['Original', 'Dark', 'Light'];
+const themes = ['Original', 'Dark', 'Light', 'Ocean'];
 
 const ThemeSheet = () => {
   const { openTheme: isOpen, toggleThemeSheet } = useTheme();
@@ -46,20 +46,24 @@ const ThemeSheet = () => {
           <p className="text-xl font-bold text-white">Themes</p>
         </div>
         <div className="flex h-full w-full flex-col justify-center">
-          {themes.map((theme) => (
-            <ThemeButton label={theme} key={theme} onClick={() => handleSetTheme(theme)}>
+          {themes.map((theme, i) => (
+            <ThemeButton
+              label={theme}
+              key={theme}
+              onClick={() => handleSetTheme(theme)}
+              style={{
+                backgroundColor: `hsl(var(--background-${i}))`,
+                color: `hsl(var(--foreground-${i}))`,
+              }}
+            >
               {theme === selectedTheme && (
                 <motion.div
                   layoutId="selectedThemeBar"
-                  className="absolute left-0 top-0 z-10 h-full w-1 bg-white"
+                  className="bg-foreground absolute left-0 top-0 z-10 h-full w-1"
                 />
               )}
             </ThemeButton>
           ))}
-
-          <div className="w-full bg-black p-4">Xtra Dark</div>
-          <div className="w-full bg-white p-4 text-black">Light</div>
-          <div className="w-full bg-teal-900 p-4">Ocean</div>
         </div>
       </motion.div>
     </>

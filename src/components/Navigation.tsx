@@ -4,7 +4,7 @@ import ThemeButton from './ThemeButton';
 const Navigation = () => {
   return (
     <div className="text-foreground absolute top-10 z-10 flex w-full select-none items-center justify-center">
-      <div className="flex items-center gap-12 border-b p-6 text-lg backdrop-blur-md">
+      <div className="border-foreground flex items-center gap-12 border-b p-6 text-lg backdrop-blur-md">
         <p className="textStroke text-4xl font-bold">&lt;a/&gt;</p>:
         <div className="flex gap-2">
           <NavButton label="About me" />

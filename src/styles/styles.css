@@ -3,9 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --foreground: 0, 0%, 100%;
+  /* Original/Default */
   --background: 221, 39%, 11%;
-  --secondary: 216 53 29; /*hsl(216 53 29)*/
+  --foreground: 0, 0%, 100%;
+  --secondary: 216 53% 29%;
+
+  /* Original */
+  --background-0: 221, 39%, 11%;
+  --foreground-0: 0, 0%, 100%;
+  /* dark */
+  --background-1: 0, 0%, 0%;
+  --foreground-1: 0, 0%, 100%;
+  /* light */
+  --background-2: 0, 0%, 100%;
+  --foreground-2: 0, 0%, 0%;
+  /* Ocean */
+  --background-3: 176, 61%, 19%;
+  --foreground-3: 0, 0%, 100%;
+  /* Template */
+  /* --background-x: ; */
+  /* --foreground-x: ; */
 }
 
 :root[theme-data='dark'] {
@@ -14,9 +31,15 @@
 }
 
 :root[theme-data='light'] {
-  --foreground: 0, 0%, 0%;
   --background: 0, 0%, 100%;
   --secondary: 0, 0%, 80%;
+  --foreground: 0, 0%, 0%;
+}
+
+:root[theme-data='ocean'] {
+  --background: 176, 61%, 19%;
+  --secondary: 0, 0%, 80%;
+  --foreground: 0, 0%, 100%;
 }
 
 html,
