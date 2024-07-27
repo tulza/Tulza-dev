@@ -4,7 +4,7 @@
 
 :root {
   --foreground: 0, 0%, 100%;
-  --background: 216, 53%, 29%;
+  --background: 221, 39%, 11%; /*gray-900*/
   --secondary: 216, 53%, 29%;
 }
 
@@ -40,22 +40,4 @@ html {
 .grid-background-50 {
   background: url(/src/assets/svg/grid.svg);
   background-size: 50px;
-}
-.grid-background-50-light {
-  background: url(/src/assets/svg/gridLight.svg);
-  background-size: 50px;
-}
-
-.diagonal-background-16 {
-  background: url(/src/assets/svg/diagonalImg.svg);
-  background-size: 16px;
-}
-
-.diagonal-background-orange-16 {
-  background: url(/src/assets/svg/diagonalImgOrange.svg);
-  background-size: 16px;
-}
-.diagonal-background-blue-16 {
-  background: url(/src/assets/svg/diagonalImgBlue.svg);
-  background-size: 16px;
 }

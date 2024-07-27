@@ -13,7 +13,7 @@
     "paths": {
       // components
       "@sections/*": ["./src/components/sections/*"],
-      "@wrapper/*": ["./src/components/wrappers/*"],
+      "@wrapper/*": ["src/components/HOCS/*"],
       "@components/*": ["./src/components/*"],
       // datas
       "@texts/*": ["./src/data/texts/*"],

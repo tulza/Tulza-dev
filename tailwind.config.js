@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       width: { desktop: '1200px' },
-      backgroundColor: { secondary: 'hsl(var(--secondary))' },
+      colors: {
+        background: 'hsl(var(--background))',
+        secondary: 'hsl(var(--secondary))',
+      },
     },
   },
   plugins: [],

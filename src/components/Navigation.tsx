@@ -1,23 +1,18 @@
 import { HTMLMotionProps, m } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import ThemeButton from './ThemeButton';
 
 const Navigation = () => {
-  const [index, setIndex] = useState();
   return (
-    <div className="absolute top-10 z-10 flex w-full items-center justify-center">
-      <div className="flex items-center gap-12 border-b p-6 text-xl backdrop-blur-md">
+    <div className="absolute top-10 z-10 flex w-full select-none items-center justify-center">
+      <div className="flex items-center gap-12 border-b p-6 text-lg backdrop-blur-md">
         <p className="textStroke text-4xl font-bold">&lt;a/&gt;</p>:
         <div className="flex gap-2">
           <NavButton label="About me" />
-          <NavButton label="Project" />
-          <NavButton label="Contacts" />
-          <NavButton label="Resume" />
+          <NavButton label="Projects" />
+          <NavButton label="Contact" />
         </div>
         :
-        <button className="flex w-32 items-center gap-2 rounded-full bg-black/80 p-4 outline outline-1">
-          Theme <ChevronDown />
-        </button>
+        <ThemeButton />
       </div>
     </div>
   );
