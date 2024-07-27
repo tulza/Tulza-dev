@@ -34,6 +34,11 @@ export const fadeIn: textVariant = {
   visible: { opacity: 1 },
 };
 
+export const slideIn: textVariant = {
+  hidden: { x: -24 },
+  visible: { x: 0 },
+};
+
 // Transitions
 export const smoothEaseInOut: Transition = {
   ease: 'easeInOut',
@@ -42,7 +47,7 @@ export const smoothEaseInOut: Transition = {
 
 // full animation
 export const smoothTextBlur: AnimationProps | LayoutProps = {
-  variants: mergeAnimation([blurIn, fadeIn]),
+  variants: mergeAnimation([blurIn, fadeIn, slideIn]),
   transition: smoothEaseInOut,
 };
 

@@ -1,5 +1,5 @@
 import { DevTools } from '@data/miscs';
-import { blurIn, fadeIn, mergeAnimation, pop } from '@variants/animations';
+import { blurIn, fadeIn, mergeAnimation, pop, slideIn } from '@variants/animations';
 import { m, Transition, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -37,7 +37,7 @@ const DevToolsSlide = ({ delay }: { delay: number }) => {
     <m.div
       initial="hidden"
       animate="visible"
-      variants={{ ...mergeAnimation([fadeIn, pop, blurIn]) }}
+      variants={{ ...mergeAnimation([fadeIn, pop, blurIn, slideIn]) }}
       transition={{ delay }}
     >
       <m.div
