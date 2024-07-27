@@ -7,10 +7,10 @@ function App() {
   const IntroDelay = 0;
   return (
     <LazyMotion features={domAnimation}>
-      <EnterWebsiteAnimation transitionTime={IntroDelay} />
-      <div className="text-foreground flex h-[4000px] w-dvw flex-col items-center overflow-x-hidden">
-        <Hero delay={IntroDelay} />
-      </div>
+      {/* <EnterWebsiteAnimation transitionTime={IntroDelay} /> */}
+      <Hero delay={IntroDelay} />
+      <div className="absolute z-10 h-[300px] w-dvw -translate-y-[50%] bg-gradient-to-b from-gray-900/0 via-gray-900 to-gray-900/0" />
+      <div className="h-[2000px]"></div>
     </LazyMotion>
   );
 }

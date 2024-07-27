@@ -4,7 +4,8 @@
 
 :root {
   --foreground: 0, 0%, 100%;
-  --background: 0, 0%, 0%;
+  --background: 216, 53%, 29%;
+  --secondary: 216, 53%, 29%;
 }
 
 :root[theme-data='light'] {
