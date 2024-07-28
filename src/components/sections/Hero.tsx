@@ -1,8 +1,8 @@
 import AnimatedTextSequence from '@components/AnimatedTextSequence';
 import DevToolsSlide from '@components/DevToolsSlide';
 import { HeroDescription, HeroText } from '@data/texts/index';
-import { AnimationProps, motion, MotionStyle } from 'framer-motion';
-import { memo } from 'react';
+import { AnimationProps, motion, MotionStyle, useInView } from 'framer-motion';
+import { memo, useRef } from 'react';
 
 const Hero = ({ delay = 0 }: { delay?: number }) => {
   return (
@@ -43,6 +43,11 @@ const BgGradient = memo(() => (
   </div>
 ));
 
+const blobvar = {
+  hidden: { rotate: 0, transition: { duration: 1 } },
+  visible: { rotate: 360 },
+};
+
 interface BlobProps extends AnimationProps {
   style?: MotionStyle;
 }
@@ -50,8 +55,7 @@ const Blob = ({ style, ...props }: BlobProps) => {
   return (
     <motion.svg
       {...props}
-      initial={{ rotate: 0 }}
-      animate={{ rotate: 360 }}
+      variants={blobvar}
       style={style}
       className="absolute w-full"
       width="740"
@@ -71,12 +75,20 @@ const Blob = ({ style, ...props }: BlobProps) => {
 };
 
 const Blobs = memo(() => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
+  console.log(inView);
   return (
-    <div className="absolute left-[50%] top-0 aspect-square w-[600px] -translate-x-[50%] -translate-y-[100%]">
+    <motion.div
+      ref={ref}
+      className="absolute left-[50%] top-0 aspect-square w-[600px] -translate-x-[50%] -translate-y-[100%]"
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+    >
       <Blob transition={{ duration: 7 }} />
       <Blob style={{ scale: 0.9, filter: 'blur(3px)' }} transition={{ duration: 11 }} />
       <Blob style={{ scale: 1.1, filter: 'blur(6px)' }} transition={{ duration: 19 }} />
-    </div>
+    </motion.div>
   );
 });
 

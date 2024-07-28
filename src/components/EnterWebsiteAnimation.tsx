@@ -6,6 +6,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { IntroDescription, IntroText } from '@texts/index';
 
 const textStagger = 0.075;
+let played = false;
 
 const delays1 = timeTextDelay(
   Array.from(IntroText).map((item) => item.text),
@@ -14,11 +15,14 @@ const delays1 = timeTextDelay(
 );
 
 export const EnterWebsiteAnimation = ({ transitionTime = 4 }) => {
+  //  anim
   useLayoutEffect(() => {
-    document.getElementById('root')?.classList.add('lock');
+    if (!played) document.getElementById('root')?.classList.add('lock');
+    played = true;
   });
-
   const ref = useRef<HTMLDivElement>(null);
+
+  // Animation complete logic
   const handleDeleteSelf = () => {
     if (!ref) return;
     enableScroll();

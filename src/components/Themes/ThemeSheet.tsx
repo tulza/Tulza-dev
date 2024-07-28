@@ -43,7 +43,7 @@ const ThemeSheet = () => {
         initial="close"
         animate={isOpen ? 'open' : 'close'}
         variants={sheetVariants}
-        transition={{ type: 'spring', stiffness: 150, damping: 20 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         onAnimationComplete={() => {}}
       >
         <div
@@ -55,24 +55,25 @@ const ThemeSheet = () => {
         </div>
         <div className="flex h-full w-full flex-col justify-center">
           {themes.map((theme, i) => (
-            <ThemeButton
-              label={theme}
-              key={theme}
-              onClick={() => handleSetTheme(theme)}
-              style={{
-                backgroundColor: `hsl(var(--background-${i}))`,
-                color: `hsl(var(--foreground-${i}))`,
-              }}
-            >
+            <div className="relative h-min">
+              <ThemeButton
+                label={theme}
+                key={theme}
+                onClick={() => handleSetTheme(theme)}
+                style={{
+                  backgroundColor: `hsl(var(--background-${i}))`,
+                  color: `hsl(var(--foreground-${i}))`,
+                }}
+              />
               {theme === selectedTheme && (
                 <motion.div
                   layoutId="selectedThemeBar"
-                  className="bg-foreground absolute left-0 top-0 z-50 grid h-full w-1 place-items-center"
+                  className="absolute left-0 top-0 z-50 grid h-full w-1 place-items-center bg-foreground"
                 >
                   <ChevronRight />
                 </motion.div>
               )}
-            </ThemeButton>
+            </div>
           ))}
         </div>
       </motion.div>
@@ -88,7 +89,7 @@ const ThemeButton = ({ label, children, ...props }: ThemeButtonProps) => {
   return (
     <div
       {...props}
-      className="bg-background relative w-full cursor-pointer p-4 pl-8 hover:saturate-200"
+      className="relative w-full cursor-pointer bg-background p-4 pl-8 hover:saturate-200"
     >
       {children}
       {label}

@@ -1,8 +1,10 @@
 import Hero from '@sections/Hero';
-import Navigation from '@components/Navigation';
+import Navigation from '@components/navigation/Navigation';
 import { createContext, useContext, useState } from 'react';
-import ThemeSheet from '@components/ThemeSheet';
+import ThemeSheet from '@components/Themes/ThemeSheet';
 import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
+import SectionSplit from '@components/SectionSplit';
+import { cn } from '@lib/utils';
 // import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
 
 interface themeContext {
@@ -25,15 +27,24 @@ function App() {
     setOpenTheme(!openTheme);
   };
 
-  const IntroDelay = 0;
+  const IntroDelay = 1;
   return (
     <>
+      {/* <EnterWebsiteAnimation transitionTime={IntroDelay} /> */}
       <ThemeContext.Provider value={{ openTheme, toggleThemeSheet }}>
         <ThemeSheet />
-        <EnterWebsiteAnimation transitionTime={IntroDelay} />
         <Navigation />
         <Hero delay={IntroDelay} />
-        <div className="absolute z-10 h-[300px] w-dvw -translate-y-[50%] bg-gradient-to-t from-transparent via-background to-transparent" />
+        <SectionSplit>
+          <p
+            className={cn(
+              'group relative p-2 text-white',
+              'before:absolute before:-bottom-0 before:left-[10%] before:-z-10 before:h-[70%] before:w-full before:bg-black before:transition-all before:duration-500 hover:before:h-[20%]'
+            )}
+          >
+            About mesdsd
+          </p>
+        </SectionSplit>
         <div className="h-[2000px]"></div>
       </ThemeContext.Provider>
     </>
