@@ -2,9 +2,13 @@ import AnimatedTextSequence from '@components/AnimatedTextSequence';
 import DevToolsSlide from '@components/DevToolsSlide';
 import { HeroDescription, HeroText } from '@data/texts/index';
 import { AnimationProps, motion, MotionStyle, useInView } from 'framer-motion';
-import { memo, useRef } from 'react';
+import React, { HTMLAttributes, memo, useRef } from 'react';
 
-const Hero = ({ delay = 0 }: { delay?: number }) => {
+interface HeroProps extends HTMLAttributes<HTMLDivElement> {
+  delay?: number;
+}
+
+const Hero = ({ delay = 0 }: HeroProps) => {
   return (
     <div className="relative flex h-dvh w-dvw items-center justify-center overflow-hidden text-white">
       <div className="h-min select-none">
@@ -77,7 +81,6 @@ const Blob = ({ style, ...props }: BlobProps) => {
 const Blobs = memo(() => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
-  console.log(inView);
   return (
     <motion.div
       ref={ref}

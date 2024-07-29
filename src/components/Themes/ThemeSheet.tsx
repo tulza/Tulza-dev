@@ -55,7 +55,7 @@ const ThemeSheet = () => {
         </div>
         <div className="flex h-full w-full flex-col justify-center">
           {themes.map((theme, i) => (
-            <div className="relative h-min">
+            <div className="relative h-min" key={theme}>
               <ThemeButton
                 label={theme}
                 key={theme}
