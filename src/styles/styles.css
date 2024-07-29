@@ -4,9 +4,14 @@
 
 :root {
   /* Original/Default */
-  --background: 221, 39%, 11%;
-  --foreground: 0, 0%, 100%;
-  --secondary: 216 53% 29%;
+  --background: 221, 39%, 11%; /*hsl(221, 39%, 11%)*/
+  --foreground: 0, 0%, 100%; /*hsl(0, 0%, 100%)*/
+  --secondary: 216 53% 29%; /*hsl(216 53% 29%)*/
+
+  --test: 216 53% 29%; /*hsl(216 53% 29%)*/
+
+  --reverse-foreground: 0, 0%, 0%; /*hsl(0, 0%, 0%)*/
+  --muted-background: 221, 19%, 11%; /*hsl(221, 19%, 11%)*/
 
   /* Original */
   --background-0: 221, 39%, 11%;
@@ -49,6 +54,7 @@ html,
   overscroll-behavior: none;
   min-height: 100dvh;
   min-width: 100dvw;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -80,4 +86,19 @@ html {
 .grid-background-50 {
   background: url(/src/assets/svg/grid.svg);
   background-size: 50px;
+}
+
+.glow-secondary {
+  box-shadow:
+    0px 0px 453.6px hsl(var(--secondary)),
+    0px 0px 259.2px hsl(var(--secondary)),
+    0px 0px 151.2px hsl(var(--secondary)),
+    0px 0px 75.6px hsl(var(--secondary)),
+    0px 0px 21.6px hsl(var(--secondary)),
+    0px 0px 10.8px hsl(var(--secondary));
+}
+
+.wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }

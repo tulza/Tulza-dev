@@ -2,9 +2,11 @@ import Hero from '@sections/Hero';
 import Navigation from '@components/navigation/Navigation';
 import { createContext, useContext, useState } from 'react';
 import ThemeSheet from '@components/Themes/ThemeSheet';
-import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
 import SectionSplit from '@components/SectionSplit';
-import { cn } from '@lib/utils';
+import { ArrowBigDown } from 'lucide-react';
+import GradientButton from '@components/GradientButton';
+import AnimatedTextSequence from '@components/AnimatedTextSequence';
+import { AboutMeIntro, AboutMeIntro2 } from '@texts/index';
 // import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
 
 interface themeContext {
@@ -36,16 +38,26 @@ function App() {
         <Navigation />
         <Hero delay={IntroDelay} />
         <SectionSplit>
-          <p
-            className={cn(
-              'group relative p-2 text-white',
-              'before:absolute before:-bottom-0 before:left-[10%] before:-z-10 before:h-[70%] before:w-full before:bg-black before:transition-all before:duration-500 hover:before:h-[20%]'
-            )}
+          <GradientButton
+            className="absolute top-[0%]"
+            onClick={() => {
+              window.location.href = '#aboutMe';
+            }}
           >
-            About mesdsd
-          </p>
+            <ArrowBigDown className="mx-2" />
+          </GradientButton>
         </SectionSplit>
-        <div className="h-[2000px]"></div>
+        <div className="mt-16 flex h-[2000px] flex-col items-center" id="aboutMe">
+          <div className="mt-16 flex h-min w-full *:flex *:flex-col *:items-center *:justify-center *:bg-black/20 *:px-12 *:py-10 *:ring-1 *:ring-white/20">
+            <div className="gap-1">
+              <p className="whitespace-nowrap text-2xl font-bold">About me</p> <p>👋</p>
+            </div>
+            <div className="flex grow text-xl">
+              <AnimatedTextSequence textJSON={AboutMeIntro} />
+              <AnimatedTextSequence textJSON={AboutMeIntro2} />
+            </div>
+          </div>
+        </div>
       </ThemeContext.Provider>
     </>
   );
