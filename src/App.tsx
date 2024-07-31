@@ -1,46 +1,73 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
-//styles
-import "@styles/styles.css";
-import "@styles/fonts.css";
-import "@styles/scrollbar.css";
-//custom hooks
-import { createContext } from "react";
-import { useMediaQuery } from "@hooks/usMediaQuery";
-//pages
-import MainPage from "@pages/MainPage";
-import { useTheme } from "@hooks/useTheme";
+import Hero from '@sections/Hero';
+import NavigationBar from '@components/navigation/NavigationBar';
+import { createContext, useContext, useState } from 'react';
+import ThemeSheet from '@components/Themes/ThemeSheet';
+import SectionSplit from '@components/SectionSplit';
+import { ArrowBigDown, ArrowBigUp } from 'lucide-react';
+import GradientButton from '@components/GradientButton';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import AppDebug from './assets/deb/AppDebug';
+import AboutMe from '@sections/AboutMe';
+import ThemeButton from '@components/Themes/ThemeButton';
+// import { EnterWebsiteAnimation } from '@components/EnterWebsiteAnimation';
 
-export const ScreenProfileContext = createContext(false);
-export const ThemeContext = createContext<any>(null);
+interface themeContext {
+  openTheme: boolean;
+  toggleThemeSheet: () => void;
+}
+const ThemeContext = createContext({} as themeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!Object.keys(context).length) {
+    throw new Error('useTheme must be used in a themeProvider');
+  }
+  return context;
+};
+
+const DEBUG = false;
 
 function App() {
-  const isDesktop = useMediaQuery("(min-width:640px)");
-  const { theme, setTheme } = useTheme();
-
-  const ContextProvider = ({ children }: { children: React.ReactNode }) => {
-    return (
-      <ScreenProfileContext.Provider value={isDesktop}>
-        <ThemeContext.Provider value={{ theme, setTheme }}>
-          {children}
-        </ThemeContext.Provider>
-      </ScreenProfileContext.Provider>
-    );
+  const [openTheme, setOpenTheme] = useState(false);
+  const { scrollYProgress, scrollY } = useScroll();
+  const hideNextButton = useSpring(useTransform(scrollY, [0, 200], [1, 0]));
+  const showTheme = useSpring(useTransform(scrollY, [0, 200], [0, 1]));
+  const toggleThemeSheet = () => {
+    setOpenTheme(!openTheme);
   };
 
+  const IntroDelay = 1;
   return (
-    <ContextProvider>
-      <Router basename="/Tulza-dev">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/" element={<Navigate to="/" />} />
-        </Routes>
-      </Router>
-    </ContextProvider>
+    <>
+      {/* <EnterWebsiteAnimation transitionTime={IntroDelay} /> */}
+      <ThemeContext.Provider value={{ openTheme, toggleThemeSheet }}>
+        {DEBUG && <AppDebug openTheme={openTheme} scrollYProgress={scrollYProgress} />}
+        <motion.div
+          style={{ opacity: showTheme }}
+          className="fixed bottom-4 right-4 z-50 flex items-center justify-center gap-2"
+        >
+          <ThemeButton />
+          <GradientButton>
+            <ArrowBigUp />
+          </GradientButton>
+        </motion.div>
+        <ThemeSheet />
+        <NavigationBar />
+        <Hero delay={IntroDelay} />
+        <SectionSplit>
+          <GradientButton
+            className="absolute top-[0%]"
+            onClick={() => {
+              window.location.href = '#aboutme';
+            }}
+            style={{ opacity: hideNextButton }}
+          >
+            <ArrowBigDown className="mx-2" />
+          </GradientButton>
+        </SectionSplit>
+        <AboutMe />
+        {/* <div className="h-[400px] w-full bg-white"></div> */}
+      </ThemeContext.Provider>
+    </>
   );
 }
 

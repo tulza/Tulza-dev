@@ -1,0 +1,30 @@
+[
+  {
+    "tool": "Html/Css",
+    "icon": "/SkillIcons/HTMLCSS.svg"
+  },
+  {
+    "tool": "React",
+    "icon": "/SkillIcons/React-Dark.svg"
+  },
+  {
+    "tool": "NextJS",
+    "icon": "/SkillIcons/NextJS-Dark.svg"
+  },
+  {
+    "tool": "Typescript",
+    "icon": "/SkillIcons/TypeScript.svg"
+  },
+  {
+    "tool": "Tailwind",
+    "icon": "/SkillIcons/TailwindCSS-Dark.svg"
+  },
+  {
+    "tool": "Framer motion",
+    "icon": "/SkillIcons/Framer-Dark.svg"
+  },
+  {
+    "tool": "Figma",
+    "icon": "/SkillIcons/Figma-Dark.svg"
+  }
+]

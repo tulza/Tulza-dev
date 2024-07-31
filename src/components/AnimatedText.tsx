@@ -1,71 +1,37 @@
-import clsx from "clsx";
-import { motion, Transition, useInView, Variants } from "framer-motion";
-import { useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { AnimationProps, HTMLMotionProps, LayoutProps, motion } from 'framer-motion';
+import { cn } from '../lib/utils';
 
-type AnimatedTextProps = {
-  className?: string;
-  type?: "word" | "letters";
-  staggerChildren?: number;
-  TextVariants: Variants;
-  transition?: Transition;
+interface AnimatedTextProps extends HTMLMotionProps<'div'> {
   text: string;
-  delayChild?: number;
-};
+  className?: string;
+  splitWord?: boolean;
+  textAnimation?: AnimationProps | LayoutProps;
+}
 
-const AnimatedText = ({
-  className,
+export const AnimatedText = ({
   text,
-  TextVariants,
-  type = "word",
-  staggerChildren = type == "word" ? 0.175 : 0.04,
-  transition,
-  delayChild = 0,
+  className,
+  splitWord,
+  textAnimation,
+  ...props
 }: AnimatedTextProps) => {
-  let items: string | string[] = text;
-  if (type == "word") {
-    items = items.split(" ");
-  } else {
-    items = [...items];
-  }
-  const ref = useRef(null);
-  const InView = useInView(ref, { once: true });
+  const items: string[] = splitWord
+    ? text.split(' ').map((word, i, arr) => word + (i != arr.length - 1 ? ' ' : ''))
+    : [...text];
+
   return (
-    <motion.div
-      ref={ref}
-      className={clsx("flex", `${className}`)}
-      transition={{
-        staggerChildren: staggerChildren,
-        delayChildren: delayChild,
-      }}
-      initial="initial"
-      animate={InView ? "animate" : "initial"}
+    <motion.p
+      {...props}
+      viewport={{ once: true }}
+      className={cn('flex *:whitespace-pre', className)}
+      initial="hidden"
+      whileInView="visible"
     >
-      {items.map((char, index) => {
-        if (char == " ")
-          return (
-            <motion.span
-              variants={TextVariants}
-              transition={transition}
-              key={uuidv4()}
-            >
-              &nbsp;
-            </motion.span>
-          );
-        return (
-          <motion.span
-            className="whitespace-nowrap"
-            variants={TextVariants}
-            transition={transition}
-            key={uuidv4()}
-          >
-            {char}
-            {type == "word" && !!(index != items.length - 1) && <>&nbsp;</>}
-          </motion.span>
-        );
-      })}
-    </motion.div>
+      {items.map((letter, i) => (
+        <motion.span key={i} {...textAnimation} {...{ text: letter }}>
+          {letter}
+        </motion.span>
+      ))}
+    </motion.p>
   );
 };
-
-export default AnimatedText;

@@ -1,7 +1,8 @@
 ::-webkit-scrollbar {
-  width: 8px;
+  /* width: 8px; */
+  display: none;
 }
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
@@ -10,4 +11,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
-}
+} */
