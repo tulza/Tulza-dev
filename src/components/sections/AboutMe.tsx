@@ -6,8 +6,18 @@ import { useRef } from 'react';
 const AboutMe = () => {
   const ref = useRef(null);
 
+  const width = 600;
+  const height = 400;
+  const gap = 64;
+  const noCard = 3;
+
+  const calcDist = (noCard - 1) * (gap + width);
+
+  const scrollArea = [0.05, 0.9];
+  const navigate = (scrollArea[1] - scrollArea[0]) / (noCard - 1);
+
   const { scrollYProgress } = useScroll({ target: ref });
-  const TranslateBox = useSpring(useTransform(scrollYProgress, [0.05, 0.95], [0, -1600]), {
+  const TranslateBox = useSpring(useTransform(scrollYProgress, scrollArea, [0, -calcDist]), {
     bounce: 0.5,
     damping: 20,
     stiffness: 100,
@@ -24,7 +34,7 @@ const AboutMe = () => {
   return (
     <motion.div
       // change the px offset to change scroll speed
-      className="mt-16 flex h-[calc(100vh+3000px)] flex-col items-center bg-background"
+      className="mt-16 flex h-[calc(100vh+2000px)] flex-col items-center bg-background"
       id="aboutme"
       style={{ background }}
       ref={ref}
@@ -33,18 +43,33 @@ const AboutMe = () => {
         <AboutMeHeader />
         <div className="relative flex h-full w-full items-center overflow-x-hidden">
           <motion.div
-            className="items-center*:ring-1 absolute left-[calc(50%-400px)] flex *:ring-white/20"
-            style={{ translateX: TranslateBox }}
+            className={`items-center*:ring-1 absolute flex *:ring-white/20`}
+            style={{
+              translateX: TranslateBox,
+              left: `calc(50% - ${width / 2}px)`,
+              gap: gap,
+            }}
           >
-            <div className="h-[400px] w-[800px] p-6 ring-1">a</div>
-            <div className="h-[400px] w-[800px] p-6 ring-1">b</div>
-            <div className="h-[400px] w-[800px] p-6 ring-1">c</div>
+            <Card width={width} height={height} />
+            <Card width={width} height={height} />
+            <Card width={width} height={height} />
           </motion.div>
         </div>
       </div>
     </motion.div>
   );
 };
+
+interface card {
+  width: number;
+  height: number;
+  children?: React.ReactNode;
+}
+const Card = ({ width, height, children }: card) => (
+  <div className="rounded-md bg-background p-6 ring-1" style={{ width, height }}>
+    {children}
+  </div>
+);
 
 const AboutMeHeader = () => (
   <div className="mt-4 flex h-min w-full flex-col *:flex *:flex-col *:items-center *:justify-center *:bg-black/20 *:px-12 *:py-10 *:ring-1 *:ring-secondary/70 lg:flex-row">
